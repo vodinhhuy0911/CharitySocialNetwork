@@ -4,6 +4,7 @@ com\n15\configs\WebApplicationContextConfig.class
 com\n15\controllers\HomeController.class
 com\n15\service\UserService.class
 com\n15\configs\handlers\LogoutHandler.class
+com\n15\validator\WebAppValidator.class
 com\n15\repository\UserRepository.class
 com\n15\configs\HibernateCofig.class
 com\n15\pojos\User_.class

@@ -46,4 +46,16 @@ public class UserRepositoryImpl implements UserRepository{
         return q.getResultList();
     }
 
+    @Override
+    public boolean addUser(User user) {
+        Session session = this.sessionFactory.getObject().openSession();
+        try{
+            session.save(user);
+            return true;
+        }catch (Exception ex){
+            System.err.println(ex.getMessage());
+        }
+        return false;
+    }
+
 }
