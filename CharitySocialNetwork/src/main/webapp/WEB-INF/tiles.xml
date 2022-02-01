@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache
+Software Foundation//DTD Tiles Configuration 3.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <definition name ="loginLayout" template="/WEB-INF/layout/templateLogin.jsp">
+        <put-attribute name ="title" value="Login"/>
+        <put-attribute name ="leftLogin" value="/WEB-INF/layout/leftLogin.jsp"/>
+        <put-attribute name ="content" value="/WEB-INF/jsp/login.jsp"/>
+    </definition>
+    <definition name ="register" extends="loginLayout">
+        <put-attribute name ="title" value="Register"/>
+        <put-attribute name ="content" value="/WEB-INF/jsp/register.jsp"/>
+    </definition>
+    
+</tiles-definitions>
