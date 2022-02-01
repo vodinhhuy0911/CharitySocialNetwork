@@ -768,7 +768,8 @@ header.sticky {
 .feature-photo {
     display: block;
     position: relative;
-    width: 100%;
+    width: 90%;
+    margin-left: 5%;
 }
 
 .feature-photo > figure {

@@ -26,4 +26,10 @@ public class UserController {
     {
         return "register";
     }
+    
+    @RequestMapping("/timeline")
+    public String timeline()
+    {
+        return "timeline";
+    }
 }

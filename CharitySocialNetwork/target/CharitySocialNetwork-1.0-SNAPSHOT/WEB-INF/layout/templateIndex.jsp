@@ -37,6 +37,7 @@
             <tiles:insertAttribute name="sidebarLeft"></tiles:insertAttribute>
 
             <section>
+                <tiles:insertAttribute name="userAvatar"></tiles:insertAttribute>
                 <div class="gap2 gray-bg">
                     <div class="container-fluid">
                         <div class="row">

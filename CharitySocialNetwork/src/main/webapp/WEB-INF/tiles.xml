@@ -19,6 +19,7 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
     </definition>
     <definition name ="indexLayout" template="/WEB-INF/layout/templateIndex.jsp">
         <put-attribute name ="title" value="Homepage"/>
+        <put-attribute name ="userAvatar" value=""/>
         <put-attribute name ="headerIndex" value="/WEB-INF/layout/headerIndex.jsp"/>
         <put-attribute name ="sidebarLeft" value="/WEB-INF/layout/sidebarLeft.jsp"/>
         <put-attribute name ="sidebarRight" value="/WEB-INF/layout/sidebarRight.jsp"/>
@@ -28,11 +29,14 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
     </definition>
     <definition name ="auction" extends="indexLayout">
         <put-attribute name ="title" value="Auction"/>
-        <put-attribute name ="headerIndex" value="/WEB-INF/layout/headerIndex.jsp"/>
-        <put-attribute name ="sidebarLeft" value="/WEB-INF/layout/sidebarLeft.jsp"/>
-        <put-attribute name ="sidebarRight" value="/WEB-INF/layout/sidebarRight.jsp"/>
+        <put-attribute name ="userAvatar" value=""/>
+        
         <put-attribute name ="sidebarStaticLeft" value=""/>
         <put-attribute name ="sidebarStaticRight" value=""/>
         <put-attribute name ="content" value="/WEB-INF/jsp/auction.jsp"/>
+    </definition>
+    <definition name ="timeline" extends="indexLayout">
+        <put-attribute name ="title" value="Timeline"/>
+        <put-attribute name ="userAvatar" value="/WEB-INF/jsp/timeline.jsp"/>
     </definition>
 </tiles-definitions>

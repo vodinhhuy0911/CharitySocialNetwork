@@ -18,7 +18,7 @@
                         </form>
                     </div>
                     <ul class="setting-area">
-                        <li><a href="<c:url value="/login"/>" title="Home" data-ripple=""><i class="fas fa-home"></i></a></li>
+                        <li><a href="<c:url value="/"/>" title="Home" data-ripple=""><i class="fas fa-home"></i></a></li>
                         <li>
                             <a href="#" title="Notification" data-ripple="">
                                 <i class="fas fa-bell"></i><span>20</span>
@@ -165,7 +165,7 @@
                             <a href="#" title=""><span class="status f-online"></span>online</a>
                             <a href="#" title=""><span class="status f-away"></span>away</a>
                             <a href="#" title=""><span class="status f-off"></span>offline</a>
-                            <a href="#" title=""><i class="far fa-user"></i></i> view profile</a>
+                            <a href="<c:url value="/timeline"/>" title=""><i class="far fa-user"></i></i> view profile</a>
                             <a href="#" title=""><i class="fas fa-users-cog"></i>account setting</a>
                             <a href="#" title=""><i class="fas fa-sign-out-alt"></i></i>log out</a>
                         </div>
