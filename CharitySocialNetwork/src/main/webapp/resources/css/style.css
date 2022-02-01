@@ -667,7 +667,7 @@ header.sticky {
     display: inline-block;
     text-align: right;
     vertical-align: middle;
-    width: 84%;
+    width: 80%;
 }
 
 .top-area > ul {
@@ -2333,10 +2333,10 @@ footer .logo {
     background: #fff none repeat scroll 0 0;
     border-radius: 0 0 3px 3px;
     position: absolute;
-    left: -15px;
+    left: -25px;
     text-align: left;
     top: 100%;
-    width: 150px;
+    width: 180px;
     opacity: 0;
     visibility: hidden;
     line-height: initial;

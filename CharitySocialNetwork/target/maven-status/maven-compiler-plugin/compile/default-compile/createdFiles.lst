@@ -1,6 +1,7 @@
 com\n15\controllers\UserController.class
 com\n15\pojos\User.class
 com\n15\configs\WebApplicationContextConfig.class
+com\n15\controllers\HomeController.class
 com\n15\pojos\Comment.class
 com\n15\pojos\Comment_.class
 com\n15\configs\HibernateCofig.class

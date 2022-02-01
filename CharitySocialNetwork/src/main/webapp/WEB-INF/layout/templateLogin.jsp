@@ -14,7 +14,7 @@
         <meta name="description" content="" />
         <meta name="keywords" content="" />
         <title><tiles:insertAttribute name ="title"></tiles:insertAttribute></title>
-        <link rel="icon" href="images/fav.png" type="image/png" sizes="16x16"> 
+        <link rel="icon" href="<c:url value="images/fav.png"/>" type="image/png" sizes="16x16"> 
 
         <link rel="stylesheet" href="<c:url value="css/main.min.css"/>">
         <link rel="stylesheet" href="<c:url value="css/style.css"/>">
