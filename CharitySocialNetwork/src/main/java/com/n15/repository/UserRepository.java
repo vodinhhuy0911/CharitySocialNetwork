@@ -15,6 +15,5 @@ import org.springframework.transaction.annotation.Transactional;
  * @author vohuy
  */
 public interface UserRepository {
-    boolean addUser(User user);
     public List<User> getUser(String keyword);
 }

@@ -15,7 +15,6 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -33,14 +32,13 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "User.findByFirstName", query = "SELECT u FROM User u WHERE u.firstName = :firstName"),
     @NamedQuery(name = "User.findByLastName", query = "SELECT u FROM User u WHERE u.lastName = :lastName"),
     @NamedQuery(name = "User.findByEmail", query = "SELECT u FROM User u WHERE u.email = :email"),
-    @NamedQuery(name = "User.findBySdt", query = "SELECT u FROM User u WHERE u.sdt = :sdt"),
+    @NamedQuery(name = "User.findByGender", query = "SELECT u FROM User u WHERE u.gender = :gender"),
     @NamedQuery(name = "User.findByUsername", query = "SELECT u FROM User u WHERE u.username = :username"),
     @NamedQuery(name = "User.findByPassword", query = "SELECT u FROM User u WHERE u.password = :password"),
     @NamedQuery(name = "User.findByActive", query = "SELECT u FROM User u WHERE u.active = :active"),
     @NamedQuery(name = "User.findByUserRole", query = "SELECT u FROM User u WHERE u.userRole = :userRole")})
 public class User implements Serializable {
-    public static final String ADMIN = "ROLE_ADMIN";
-    public static final String USER = "ROLE_USER";
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -65,9 +63,9 @@ public class User implements Serializable {
     private String email;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 11)
-    @Column(name = "sdt")
-    private String sdt;
+    @Size(min = 1, max = 6)
+    @Column(name = "gender")
+    private String gender;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -87,8 +85,7 @@ public class User implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "user_role")
     private String userRole;
-    @Transient
-    private String confirmPassword;
+
     public User() {
     }
 
@@ -96,12 +93,12 @@ public class User implements Serializable {
         this.iduser = iduser;
     }
 
-    public User(Integer iduser, String firstName, String lastName, String email, String sdt, String username, String password, boolean active, String userRole) {
+    public User(Integer iduser, String firstName, String lastName, String email, String gender, String username, String password, boolean active, String userRole) {
         this.iduser = iduser;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.sdt = sdt;
+        this.gender = gender;
         this.username = username;
         this.password = password;
         this.active = active;
@@ -140,12 +137,12 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public String getSdt() {
-        return sdt;
+    public String getGender() {
+        return gender;
     }
 
-    public void setSdt(String sdt) {
-        this.sdt = sdt;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public String getUsername() {
@@ -203,20 +200,6 @@ public class User implements Serializable {
     @Override
     public String toString() {
         return "com.n15.pojos.User[ iduser=" + iduser + " ]";
-    }
-
-    /**
-     * @return the confirmPassword
-     */
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
-
-    /**
-     * @param confirmPassword the confirmPassword to set
-     */
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
     }
     
 }
