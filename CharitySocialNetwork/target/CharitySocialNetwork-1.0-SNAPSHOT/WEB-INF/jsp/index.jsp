@@ -17,14 +17,14 @@
                     <textarea rows="2" placeholder="write something"></textarea>
                     <div class="attachments">
                         <ul>
-                            
+
                             <li>
                                 <i class="fas fa-images"></i>
                                 <label class="fileContainer">
                                     <input type="file">
                                 </label>
                             </li>
-                            
+
                             <li>
                                 <button type="submit">Post</button>
                             </li>
@@ -46,7 +46,34 @@
                         <span>published: june,2 2018 19:PM</span>
                     </div>
                     <div class="post-meta">
-                        <img src="images/resources/user-post.jpg" alt="">
+                        <a href="#"><img src="images/resources/user-post.jpg" alt=""></a>
+                        <div class="more-pix">
+                            <h2 class="main-title text-center">Shoes for Men Black</h2>
+                            <div class="row">
+                                <div class="offset-md-1 col-lg-10">
+                                    <p class="prod-info text-center">
+                                        Time start:
+                                    </p>
+                                    <p class="prod-info text-center">
+                                        Time end:
+                                    </p>
+                                    <p class="prod-info text-center">
+                                        Price:
+                                    </p>
+                                </div>
+                            </div>	
+                            <div class="row">
+                                <div class="offset-md-1 col-lg-10">
+                                    <p class="prod-info text-center">
+                                        Let the rest look at you with starry eyes, as you show off your love for fashion and for the company by carrying this grey handbag from Inc.5. Featuring a sophisticated gusseted design and delicate laser cut details all over,and find the way through the maze of the creative process/journey. this handbag is a cut above the rest. It also has twin grab handles and a zip closure that allows the ease of carrying.
+                                    </p>
+                                    <p class="prod-info text-center">
+                                        Ariadne’s thread is the thread of the divine present in all things.  or rather uncover, their source and find the way through the maze of the creative process/journey.
+                                        Let the rest look at you with starry eyes, as you show off your love for fashion and for the company by carrying this grey handbag from Inc.5.
+                                    </p>
+                                </div>
+                            </div>	
+                        </div>
                         <div class="we-video-info">
                             <ul>
                                 <li>
@@ -96,12 +123,6 @@
                                     </div>
                                 </li>
                             </ul>
-                        </div>
-                        <div class="description">
-
-                            <p>
-                                World's most beautiful car in Curabitur <a href="#" title="">#test drive booking !</a> the most beatuiful car available in america and the saudia arabia, you can book your test drive by our official website
-                            </p>
                         </div>
                     </div>
                 </div>

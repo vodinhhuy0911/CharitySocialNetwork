@@ -6713,8 +6713,8 @@ a.reply {
     color: white;
     cursor: pointer;
     position: absolute;
-    width: 230px;
-    height: 230px;
+    width: 217px;
+    height: 89px;
     right: -120px;
     top: -120px;
     -webkit-transition: all 0.3s linear 0s;
@@ -6749,7 +6749,7 @@ a.reply {
     font-size: 30px;
     position: absolute;
     right: 145px;
-    top: 150px;
+    top: 40px;
     -webkit-transition: all 0.3s linear 0s;
     -moz-transition: all 0.3s linear 0s;
     -ms-transition: all 0.3s linear 0s;

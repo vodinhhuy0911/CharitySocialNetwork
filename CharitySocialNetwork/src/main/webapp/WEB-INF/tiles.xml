@@ -26,4 +26,13 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
         <put-attribute name ="sidebarStaticRight" value="/WEB-INF/layout/sidebarStaticRight.jsp"/>
         <put-attribute name ="content" value="/WEB-INF/jsp/index.jsp"/>
     </definition>
+    <definition name ="auction" extends="indexLayout">
+        <put-attribute name ="title" value="Auction"/>
+        <put-attribute name ="headerIndex" value="/WEB-INF/layout/headerIndex.jsp"/>
+        <put-attribute name ="sidebarLeft" value="/WEB-INF/layout/sidebarLeft.jsp"/>
+        <put-attribute name ="sidebarRight" value="/WEB-INF/layout/sidebarRight.jsp"/>
+        <put-attribute name ="sidebarStaticLeft" value=""/>
+        <put-attribute name ="sidebarStaticRight" value=""/>
+        <put-attribute name ="content" value="/WEB-INF/jsp/auction.jsp"/>
+    </definition>
 </tiles-definitions>

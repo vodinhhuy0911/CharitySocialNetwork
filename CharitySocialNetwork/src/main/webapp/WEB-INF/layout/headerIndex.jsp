@@ -14,7 +14,7 @@
                     <div class="top-search">
                         <form method="post" class="">
                             <input type="text" placeholder="Search Friend">
-                            <button data-ripple><i class="ti-search"></i></button>
+                            <button data-ripple><i class="fas fa-search"></i></button>
                         </form>
                     </div>
                     <ul class="setting-area">

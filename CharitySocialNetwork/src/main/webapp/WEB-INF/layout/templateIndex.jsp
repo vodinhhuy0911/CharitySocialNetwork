@@ -19,9 +19,9 @@
         <meta name="keywords" content="" />
         <title><tiles:insertAttribute name="title"></tiles:insertAttribute></title>
         <link rel="icon" href="<c:url value="images/fav.png"/>" type="image/png" sizes="16x16"> 
-
         <link rel="stylesheet" href="<c:url value="css/main.min.css"/>">
         <link rel="stylesheet" href="<c:url value="css/style.css"/>">
+        <link rel="stylesheet" href="<c:url value="css/strip.css"/>">
         <link rel="stylesheet" href="<c:url value="css/color.css"/>">
         <link rel="stylesheet" href="<c:url value="css/responsive.css"/>">
 
@@ -60,6 +60,7 @@
         <script src="<c:url value="js/main.min.js"/>"></script>
         <script src="<c:url value="js/script.js"/>"></script>
         <script src="<c:url value="js/map-init.js"/>"></script>
+        <script src="<c:url value="js/strip.pkgd.min.js"/>"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8c55_YHLvDHGACkQscgbGLtLRdxBDCfI"></script>
 
     </body>	
