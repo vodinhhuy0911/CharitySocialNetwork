@@ -46,4 +46,14 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
         <put-attribute name ="sidebarStaticRight" value=""/>
         <put-attribute name ="sidebarRight" value=""/>
     </definition>
+    <definition name ="editProfileBasic" extends="timeline">
+        <put-attribute name ="title" value="Edit Profile Basic"/>
+        <put-attribute name ="content" value="/WEB-INF/jsp/editProfileBasic.jsp"/>
+        <put-attribute name ="sidebarStaticLeft" value="/WEB-INF/layout/editInfor.jsp"/>
+    </definition>
+    <definition name ="editPassword" extends="editProfileBasic">
+        <put-attribute name ="title" value="Edit Password"/>
+        <put-attribute name ="content" value="/WEB-INF/jsp/editPassword.jsp"/>
+        
+    </definition>
 </tiles-definitions>

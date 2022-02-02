@@ -38,4 +38,15 @@ public class UserController {
     {
         return "message";
     }
+    
+    @RequestMapping("/editProfileBasic")
+    public String editProfileBasic()
+    {
+        return "editProfileBasic";
+    }
+    @RequestMapping("/editPassword")
+    public String editPassword()
+    {
+        return "editPassword";
+    }
 }
