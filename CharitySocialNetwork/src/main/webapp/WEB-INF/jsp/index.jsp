@@ -13,24 +13,8 @@
                 <img src="images/resources/admin2.jpg" alt="">
             </figure>
             <div class="newpst-input">
-                <form method="post">
-                    <textarea rows="2" placeholder="write something"></textarea>
-                    <div class="attachments">
-                        <ul>
-
-                            <li>
-                                <i class="fas fa-images"></i>
-                                <label class="fileContainer">
-                                    <input type="file">
-                                </label>
-                            </li>
-
-                            <li>
-                                <button type="submit">Post</button>
-                            </li>
-                        </ul>
-                    </div>
-                </form>
+                <button type="submit" class="custom-btn btn-15">Create auction post</button>
+                
             </div>
         </div>
     </div><!-- add post new box -->

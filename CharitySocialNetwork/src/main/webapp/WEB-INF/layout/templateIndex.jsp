@@ -10,6 +10,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/423053773c.js" crossorigin="anonymous"></script>
         <link href="https://doannguyennet.github.io/iconsfont/linearicons.css" rel="stylesheet"/>
         <link href="https://doannguyennet.github.io/iconsfont/linearicons.min.css" rel="stylesheet"/>
@@ -24,7 +25,7 @@
         <link rel="stylesheet" href="<c:url value="css/strip.css"/>">
         <link rel="stylesheet" href="<c:url value="css/color.css"/>">
         <link rel="stylesheet" href="<c:url value="css/responsive.css"/>">
-
+        <link rel="stylesheet" href="<c:url value="css/cssButton.css"/>">
     </head>
     <body>
         <!--<div class="se-pre-con"></div>-->
