@@ -49,4 +49,14 @@ public class UserController {
     {
         return "editPassword";
     }
+    @RequestMapping("/notification")
+    public String notification()
+    {
+        return "notification";
+    }
+    @RequestMapping("/insights")
+    public String insights()
+    {
+        return "insights";
+    }
 }

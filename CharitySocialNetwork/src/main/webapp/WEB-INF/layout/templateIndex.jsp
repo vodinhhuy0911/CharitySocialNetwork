@@ -32,35 +32,38 @@
             <tiles:insertAttribute name="headerIndex"></tiles:insertAttribute>
             <tiles:insertAttribute name="sidebarRight"></tiles:insertAttribute>
 
-            
+
 
             <tiles:insertAttribute name="sidebarLeft"></tiles:insertAttribute>
 
-            <section>
+                <section>
                 <tiles:insertAttribute name="userAvatar"></tiles:insertAttribute>
-                <div class="gap2 gray-bg">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="row merged20" id="page-contents">
-                                    <div class="col-lg-3">
-                                    <tiles:insertAttribute name="sidebarStaticLeft"></tiles:insertAttribute>
-                                    </div><!-- sidebar -->
+                    <div class="gap2 gray-bg">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="row merged20" id="page-contents">
+                                        <div class="col-lg-3">
+                                        <tiles:insertAttribute name="sidebarStaticLeft"></tiles:insertAttribute>
+                                        </div><!-- sidebar -->
                                     <tiles:insertAttribute name="content"></tiles:insertAttribute>
-                                    <div class="col-lg-3">
-                                    <tiles:insertAttribute name="sidebarStaticRight"></tiles:insertAttribute>
-                                    </div><!-- sidebar -->
-                                </div>	
+                                        <div class="col-lg-3">
+                                        <tiles:insertAttribute name="sidebarStaticRight"></tiles:insertAttribute>
+                                        </div><!-- sidebar -->
+                                    </div>	
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>	
-            </section> 
-        </div>
-        
-        <script src="<c:url value="js/main.min.js"/>"></script>
+                    </div>	
+                </section> 
+            </div>
+
+            <script src="<c:url value="js/main.min.js"/>"></script>
         <script src="<c:url value="js/script.js"/>"></script>
         <script src="<c:url value="js/map-init.js"/>"></script>
+        <script src="<c:url value="js/echarts.min.js"/>"></script>
+        <script src="<c:url value="js/world.js"/>"></script>
+        <script src="<c:url value="js/custom.js"/>"></script>
         <script src="<c:url value="js/strip.pkgd.min.js"/>"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8c55_YHLvDHGACkQscgbGLtLRdxBDCfI"></script>
 

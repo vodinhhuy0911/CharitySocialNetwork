@@ -56,4 +56,12 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
         <put-attribute name ="content" value="/WEB-INF/jsp/editPassword.jsp"/>
         
     </definition>
+    <definition name ="notification" extends="timeline">
+        <put-attribute name ="title" value="Notification"/>
+        <put-attribute name ="content" value="/WEB-INF/jsp/notification.jsp"/>
+    </definition>
+    <definition name ="insights" extends="timeline">
+        <put-attribute name ="title" value="Notification"/>
+        <put-attribute name ="content" value="/WEB-INF/jsp/insights.jsp"/>
+    </definition>
 </tiles-definitions>
