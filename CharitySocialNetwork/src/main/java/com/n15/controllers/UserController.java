@@ -32,4 +32,10 @@ public class UserController {
     {
         return "timeline";
     }
+    
+    @RequestMapping("/message")
+    public String message()
+    {
+        return "message";
+    }
 }
