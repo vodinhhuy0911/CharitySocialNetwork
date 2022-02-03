@@ -5331,8 +5331,8 @@ canvas {
     color: #b6b6b6;
     font-size: 15px;
     position: absolute;
-    right: 6px;
-    top: 50%;
+    right: -10px;
+    top: 10%;
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
@@ -6714,8 +6714,8 @@ a.reply {
     color: white;
     cursor: pointer;
     position: absolute;
-    width: 217px;
-    height: 89px;
+    width: 189px;
+    height: 120px;
     right: -120px;
     top: -120px;
     -webkit-transition: all 0.3s linear 0s;
@@ -6749,8 +6749,8 @@ a.reply {
     color: white;
     font-size: 30px;
     position: absolute;
-    right: 145px;
-    top: 40px;
+    right: 105px;
+    top: 70px;
     -webkit-transition: all 0.3s linear 0s;
     -moz-transition: all 0.3s linear 0s;
     -ms-transition: all 0.3s linear 0s;
@@ -10045,6 +10045,10 @@ aside.sidebar.full-style {
     font-weight: bold;
     letter-spacing: 0.5px;
     text-transform: uppercase;
+}
+
+.white-bg{
+    background-color: white;
 }
 
 

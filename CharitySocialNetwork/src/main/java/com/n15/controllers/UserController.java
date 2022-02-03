@@ -59,4 +59,24 @@ public class UserController {
     {
         return "insights";
     }
+    @RequestMapping("/shop")
+    public String shop()
+    {
+        return "shop";
+    }
+    @RequestMapping("/shopDetail")
+    public String shopDetail()
+    {
+        return "shopDetail";
+    }
+    @RequestMapping("/shopCart")
+    public String shopCart()
+    {
+        return "shopCart";
+    }
+    @RequestMapping("/shopCheckout")
+    public String shopCheckout()
+    {
+        return "shopCheckout";
+    }
 }

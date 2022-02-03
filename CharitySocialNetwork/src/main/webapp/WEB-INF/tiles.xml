@@ -30,7 +30,6 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
     <definition name ="auction" extends="indexLayout">
         <put-attribute name ="title" value="Auction"/>
         <put-attribute name ="userAvatar" value=""/>
-        
         <put-attribute name ="sidebarStaticLeft" value=""/>
         <put-attribute name ="sidebarStaticRight" value=""/>
         <put-attribute name ="content" value="/WEB-INF/jsp/auction.jsp"/>
@@ -63,5 +62,21 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
     <definition name ="insights" extends="timeline">
         <put-attribute name ="title" value="Notification"/>
         <put-attribute name ="content" value="/WEB-INF/jsp/insights.jsp"/>
+    </definition>
+    <definition name ="shop" extends="auction">
+        <put-attribute name ="title" value="Shop"/>
+        <put-attribute name ="content" value="/WEB-INF/jsp/shop.jsp"/>
+    </definition>
+    <definition name ="shopDetail" extends="shop">
+        <put-attribute name ="title" value="shop"/>
+        <put-attribute name ="content" value="/WEB-INF/jsp/shopDetail.jsp"/>
+    </definition>
+    <definition name ="shopCart" extends="shop">
+        <put-attribute name ="title" value="Shop"/>
+        <put-attribute name ="content" value="/WEB-INF/jsp/shopCart.jsp"/>
+    </definition>
+    <definition name ="shopCheckout" extends="shop">
+        <put-attribute name ="title" value="Shop"/>
+        <put-attribute name ="content" value="/WEB-INF/jsp/shopCheckout.jsp"/>
     </definition>
 </tiles-definitions>
