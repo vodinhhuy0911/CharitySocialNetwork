@@ -25,14 +25,28 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "user")
+@XmlRootElement
+@NamedQueries({
+    @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
+    @NamedQuery(name = "User.findById", query = "SELECT u FROM User u WHERE u.id = :id"),
+    @NamedQuery(name = "User.findByFirstName", query = "SELECT u FROM User u WHERE u.firstName = :firstName"),
+    @NamedQuery(name = "User.findByLastName", query = "SELECT u FROM User u WHERE u.lastName = :lastName"),
+    @NamedQuery(name = "User.findByEmail", query = "SELECT u FROM User u WHERE u.email = :email"),
+    @NamedQuery(name = "User.findBySdt", query = "SELECT u FROM User u WHERE u.sdt = :sdt"),
+    @NamedQuery(name = "User.findByImages", query = "SELECT u FROM User u WHERE u.images = :images"),
+    @NamedQuery(name = "User.findByCoverPhoto", query = "SELECT u FROM User u WHERE u.coverPhoto = :coverPhoto"),
+    @NamedQuery(name = "User.findByUsername", query = "SELECT u FROM User u WHERE u.username = :username"),
+    @NamedQuery(name = "User.findByPassword", query = "SELECT u FROM User u WHERE u.password = :password"),
+    @NamedQuery(name = "User.findByActive", query = "SELECT u FROM User u WHERE u.active = :active"),
+    @NamedQuery(name = "User.findByUserRole", query = "SELECT u FROM User u WHERE u.userRole = :userRole")})
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "iduser")
-    private Integer iduser;
+    @Column(name = "id")
+    private Integer id;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -83,12 +97,12 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(Integer iduser) {
-        this.iduser = iduser;
+    public User(Integer id) {
+        this.id = id;
     }
 
-    public User(Integer iduser, String firstName, String lastName, String email, String sdt, String username, String password, boolean active, String userRole) {
-        this.iduser = iduser;
+    public User(Integer id, String firstName, String lastName, String email, String sdt, String username, String password, boolean active, String userRole) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -99,12 +113,12 @@ public class User implements Serializable {
         this.userRole = userRole;
     }
 
-    public Integer getIduser() {
-        return iduser;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIduser(Integer iduser) {
-        this.iduser = iduser;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -186,30 +200,30 @@ public class User implements Serializable {
     public void setUserRole(String userRole) {
         this.userRole = userRole;
     }
-//
-//    @Override
-//    public int hashCode() {
-//        int hash = 0;
-//        hash += (iduser != null ? iduser.hashCode() : 0);
-//        return hash;
-//    }
-//
-//    @Override
-//    public boolean equals(Object object) {
-//        // TODO: Warning - this method won't work in the case the id fields are not set
-//        if (!(object instanceof User)) {
-//            return false;
-//        }
-//        User other = (User) object;
-//        if ((this.iduser == null && other.iduser != null) || (this.iduser != null && !this.iduser.equals(other.iduser))) {
-//            return false;
-//        }
-//        return true;
-//    }
-//
-//    @Override
-//    public String toString() {
-//        return "com.n15.pojos.User[ iduser=" + iduser + " ]";
-//    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof User)) {
+            return false;
+        }
+        User other = (User) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "com.n15.pojos.User[ id=" + id + " ]";
+    }
     
 }

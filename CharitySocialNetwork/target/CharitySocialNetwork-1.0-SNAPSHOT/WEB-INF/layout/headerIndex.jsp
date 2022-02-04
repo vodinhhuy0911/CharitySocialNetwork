@@ -167,7 +167,7 @@
                             <a href="#" title=""><span class="status f-off"></span>offline</a>
                             <a href="<c:url value="/timeline"/>" title=""><i class="far fa-user"></i></i> view profile</a>
                             <a href="#" title=""><i class="fas fa-users-cog"></i>account setting</a>
-                            <a href="#" title=""><i class="fas fa-sign-out-alt"></i></i>log out</a>
+                            <a href="<c:url value="/logout"/>" title=""><i class="fas fa-sign-out-alt"></i></i>log out</a>
                         </div>
                     </div>
                     
@@ -239,7 +239,7 @@
                         <ul>
                             <li><a href="careers.html" title="">Careers</a></li>
                             <li><a href="career-detail.html" title="">Career Detail</a></li>
-                            <li><a href="logout.html" title="">Logout Page</a></li>
+                            <li><a href="#" title="">Logout Page</a></li>
                             <li><a href="404-2.html" title="">404 Errro Page</a></li>
                             <li><a href="about-company.html" title="">About Us</a></li>
                             <li><a href="contact-branches.html" title="">Contact Us</a></li>

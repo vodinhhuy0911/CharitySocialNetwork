@@ -7,6 +7,8 @@ package com.n15.configs;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
+import com.n15.configs.handler.LoginSuccessHandler;
+import com.n15.configs.handler.LogoutHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -17,6 +19,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
@@ -33,7 +37,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
     @Autowired
     private UserDetailsService userDetailsService;
-    
+    @Autowired
+    private AuthenticationSuccessHandler loginSuccessHandler;
+    @Autowired
+    private LogoutSuccessHandler logoutHandler;
     @Bean
     public BCryptPasswordEncoder passwordEncoder()
     {
@@ -45,15 +52,28 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }
 
+    @Bean
+    public AuthenticationSuccessHandler loginSuccessHandler()
+    {
+        return new LoginSuccessHandler();
+    } 
+    @Bean
+    public LogoutSuccessHandler logoutHandler()
+    {
+        return new LogoutHandler();
+    }
+    
+    
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.formLogin().loginPage("/login")
                 .usernameParameter("username")
                 .passwordParameter("password");
         http.formLogin().defaultSuccessUrl("/").failureForwardUrl("/login?error");
-//        http.formLogin().successHandler(successHandler);
+        http.formLogin().successHandler(this.loginSuccessHandler);
         
-        http.logout().logoutSuccessUrl("/login");
+//        http.logout().logoutSuccessUrl("/login");
+        http.logout().logoutSuccessHandler(this.logoutHandler);
         http.exceptionHandling().accessDeniedPage("/login?accessDenied");
         http.authorizeRequests().antMatchers("/").permitAll()
                 .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')");
