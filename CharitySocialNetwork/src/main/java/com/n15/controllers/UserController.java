@@ -5,6 +5,8 @@
  */
 package com.n15.controllers;
 
+import com.n15.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -15,10 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class UserController {
     
+    @Autowired
+    private UserService userDetailsService;
     @RequestMapping("/login")
     public String login()
     {
-        return "loginLayout";
+        return "login";
     }
     
     @RequestMapping("/register")

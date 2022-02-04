@@ -31,8 +31,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
     "com.n15.service"
 })
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
-//    @Autowired
-//    private UserDetailsService userDetailsService;
+    @Autowired
+    private UserDetailsService userDetailsService;
     
     @Bean
     public BCryptPasswordEncoder passwordEncoder()
@@ -40,10 +40,10 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
         return new BCryptPasswordEncoder();
     }
 
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-//    }
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
