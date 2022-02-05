@@ -33,7 +33,7 @@
                 <a href="#" title="" class="forgot-pwd">Forgot Password?</a>
                 <div class="submit-btns">
                     <input class="custom-btn btn-15 " type="submit" value="Login"/>
-                    <button class="custom-btn btn-15" type="button"><a href="<c:url value="/register"/>">Register</a></button>
+                    <a href="<c:url value="/register"/>"><button class="custom-btn btn-15" type="button">Register</button></a>
                 </div>
 </form:form>
                 </div>

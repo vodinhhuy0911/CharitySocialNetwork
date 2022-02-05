@@ -5,10 +5,14 @@
  */
 package com.n15.controllers;
 
+import com.n15.pojos.User;
 import com.n15.service.UserService;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -17,74 +21,90 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class UserController {
-    
+
     @Autowired
     private UserService userDetailsService;
+
     @RequestMapping("/login")
-    public String login(HttpSession session)
-    {
-        if(session.getAttribute("currentUser") == null)
+    public String login(HttpSession session) {
+        if (session.getAttribute("currentUser") == null) {
             return "login";
-        else
+        } else {
             return "redirect:/";
+        }
     }
-    
+
     @RequestMapping("/register")
-    public String register()
-    {
+    public String registerView(Model model) {
+        model.addAttribute("user", new User());
         return "register";
     }
-    
+
+    @PostMapping("/register")
+    public String register(Model model, @ModelAttribute(value = "user") User user) {
+        //làm trong validate confirm pass
+        String error = null;
+        if (user.getPassword().equals(user.getConfirmPassword())) {
+            if (this.userDetailsService.addUser(user)) {
+                return "redirect:/login";
+            } else {
+                error = "Đã có lỗi xảy ra";
+            }
+        } else {
+            error = "Mật khẩu không khớp";
+        }
+        model.addAttribute("errorMsg", error);
+        return "register";
+
+    }
+
     @RequestMapping("/timeline")
-    public String timeline()
-    {
+    public String timeline() {
         return "timeline";
     }
-    
+
     @RequestMapping("/message")
-    public String message()
-    {
+    public String message() {
         return "message";
     }
-    
+
     @RequestMapping("/editProfileBasic")
-    public String editProfileBasic()
-    {
+    public String editProfileBasic() {
         return "editProfileBasic";
     }
+
     @RequestMapping("/editPassword")
-    public String editPassword()
-    {
+    public String editPassword() {
         return "editPassword";
     }
+
     @RequestMapping("/notification")
-    public String notification()
-    {
+    public String notification() {
         return "notification";
     }
+
     @RequestMapping("/insights")
-    public String insights()
-    {
+    public String insights() {
         return "insights";
     }
+
     @RequestMapping("/shop")
-    public String shop()
-    {
+    public String shop() {
         return "shop";
     }
+
     @RequestMapping("/shopDetail")
-    public String shopDetail()
-    {
+    public String shopDetail() {
         return "shopDetail";
     }
+
     @RequestMapping("/shopCart")
-    public String shopCart()
-    {
+    public String shopCart() {
         return "shopCart";
     }
+
     @RequestMapping("/shopCheckout")
-    public String shopCheckout()
-    {
+    public String shopCheckout() {
         return "shopCheckout";
     }
 }

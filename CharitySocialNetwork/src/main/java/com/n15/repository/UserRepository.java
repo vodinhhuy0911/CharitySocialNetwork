@@ -13,5 +13,6 @@ import java.util.List;
  * @author vohuy
  */
 public interface UserRepository {
+    boolean addUser(User user);
     List<User> getUser(String keyword);
 }

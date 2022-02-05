@@ -8,6 +8,7 @@ D:\Subject\Lap trinh java\BTL\CharitySocialNetwork\CharitySocialNetwork\src\main
 D:\Subject\Lap trinh java\BTL\CharitySocialNetwork\CharitySocialNetwork\src\main\java\com\n15\repository\Impl\UserRepositoryImpl.java
 D:\Subject\Lap trinh java\BTL\CharitySocialNetwork\CharitySocialNetwork\src\main\java\com\n15\configs\WebApplicationContextConfig.java
 D:\Subject\Lap trinh java\BTL\CharitySocialNetwork\CharitySocialNetwork\src\main\java\com\n15\service\UserService.java
+D:\Subject\Lap trinh java\BTL\CharitySocialNetwork\CharitySocialNetwork\src\main\java\com\n15\configs\handler\LogoutHandler.java
 D:\Subject\Lap trinh java\BTL\CharitySocialNetwork\CharitySocialNetwork\src\main\java\com\n15\pojos\User.java
 D:\Subject\Lap trinh java\BTL\CharitySocialNetwork\CharitySocialNetwork\src\main\java\com\n15\configs\HibernateCofig.java
 D:\Subject\Lap trinh java\BTL\CharitySocialNetwork\CharitySocialNetwork\src\main\java\com\n15\service\Impl\UserServiceImpl.java
