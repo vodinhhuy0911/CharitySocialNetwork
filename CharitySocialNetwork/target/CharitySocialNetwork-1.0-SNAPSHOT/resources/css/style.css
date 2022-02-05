@@ -10050,5 +10050,18 @@ aside.sidebar.full-style {
 .white-bg{
     background-color: white;
 }
+.avatar-timeline
+{
+    margin-top:15px;
+    width:60px;
+    height:60px;
+}
+.avatar-header{
+    width: 45px; height: 45px;
+}
+.avatar-display{
+    width: 191px; height: 187px;
+}
+
 
 

@@ -10,7 +10,7 @@
     <div class="central-meta">
         <div class="new-postbox">
             <figure>
-                <img src="images/resources/admin2.jpg" alt="">
+                <img class="avatar-timeline" src="${currentUser.images}" alt="">
             </figure>
             <div class="newpst-input">
                 <button type="submit" class="custom-btn btn-15">Create auction post</button>

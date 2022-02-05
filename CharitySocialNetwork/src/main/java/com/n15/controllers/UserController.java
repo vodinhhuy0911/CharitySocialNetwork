@@ -25,8 +25,15 @@ public class UserController {
     @Autowired
     private UserService userDetailsService;
 
+    @ModelAttribute
+    public void commonAttrs(Model model, HttpSession session)
+    {
+        session.getAttribute("currentUser");
+    }
+    
     @RequestMapping("/login")
     public String login(HttpSession session) {
+        
         if (session.getAttribute("currentUser") == null) {
             return "login";
         } else {

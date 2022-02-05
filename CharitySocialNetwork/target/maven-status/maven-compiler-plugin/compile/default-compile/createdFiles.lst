@@ -6,12 +6,16 @@ com\n15\controllers\HomeController.class
 com\n15\controllers\ProductController.class
 com\n15\service\UserService.class
 com\n15\repository\UserRepository.class
+com\n15\pojos\Comment.class
+com\n15\pojos\Comment_.class
 com\n15\configs\HibernateCofig.class
 com\n15\pojos\User_.class
 com\n15\configs\handler\LogoutHandler.class
+com\n15\pojos\Posts.class
 com\n15\configs\SecurityWebAppInitializer.class
 com\n15\configs\DispatcherServletInitializer.class
 com\n15\configs\TilesConfig.class
 com\n15\service\Impl\UserServiceImpl.class
 com\n15\repository\Impl\UserRepositoryImpl.class
 com\n15\configs\SpringSecurityConfig.class
+com\n15\pojos\Posts_.class

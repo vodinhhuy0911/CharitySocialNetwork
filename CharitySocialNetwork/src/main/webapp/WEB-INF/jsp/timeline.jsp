@@ -18,7 +18,7 @@
                             <div class="col-lg-2 col-sm-3">
                                 <div class="user-avatar">
                                     <figure>
-                                        <img src="images/resources/user-avatar.jpg" alt="">
+                                        <img class="avatar-display" src="${currentUser.images}" alt="">
                                         <form class="edit-phto">
                                             <i class="fa fa-camera-retro"></i>
                                             <label class="fileContainer">
@@ -33,8 +33,8 @@
                                 <div class="timeline-info">
                                     <ul>
                                         <li class="admin-name">
-                                            <h5>Janice Griffith</h5>
-                                            <span>Group Admin</span>
+                                            <h5>${currentUser.firstName} - ${currentUser.lastName}</h5>
+                                            <span>Nickname</span>
                                         </li>
                                         <li>
                                             <a class="active" href="time-line.html" title="" data-ripple="">time line</a>
