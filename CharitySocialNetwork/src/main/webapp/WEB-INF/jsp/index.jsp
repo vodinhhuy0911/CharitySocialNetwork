@@ -20,40 +20,37 @@
     </div><!-- add post new box -->
     <div class="loadMore">
         <div class="central-meta item">
+            <c:forEach var="item" items="${post}">
             <div class="user-post">
                 <div class="friend-info">
                     <figure>
-                        <img src="images/resources/friend-avatar10.jpg" alt="">
+                        <img class ="avatar-poster"src="${item.user.images}" alt="">
                     </figure>
                     <div class="friend-name">
-                        <ins><a href="time-line.html" title="">Janice Griffith</a></ins>
-                        <span>published: june,2 2018 19:PM</span>
+                        <ins><a href="time-line.html" title="">${item.user.firstName} ${item.user.lastName}</a></ins>
+                        <span>Published: ${item.published}</span>
                     </div>
                     <div class="post-meta">
-                        <a href="#"><img src="images/resources/user-post.jpg" alt=""></a>
+                        <a href="#"><img src="${item.image}" alt=""></a>
                         <div class="more-pix">
                             <h2 class="main-title text-center">Shoes for Men Black</h2>
                             <div class="row">
                                 <div class="offset-md-1 col-lg-10">
                                     <p class="prod-info text-center">
-                                        Time start:
+                                        Time start: ${item.timeStart}
                                     </p>
                                     <p class="prod-info text-center">
-                                        Time end:
+                                        Time end: ${item.timeEnd}
                                     </p>
                                     <p class="prod-info text-center">
-                                        Price:
+                                        Price: ${item.price}
                                     </p>
                                 </div>
                             </div>	
                             <div class="row">
                                 <div class="offset-md-1 col-lg-10">
                                     <p class="prod-info text-center">
-                                        Let the rest look at you with starry eyes, as you show off your love for fashion and for the company by carrying this grey handbag from Inc.5. Featuring a sophisticated gusseted design and delicate laser cut details all over,and find the way through the maze of the creative process/journey. this handbag is a cut above the rest. It also has twin grab handles and a zip closure that allows the ease of carrying.
-                                    </p>
-                                    <p class="prod-info text-center">
-                                        Ariadne’s thread is the thread of the divine present in all things.  or rather uncover, their source and find the way through the maze of the creative process/journey.
-                                        Let the rest look at you with starry eyes, as you show off your love for fashion and for the company by carrying this grey handbag from Inc.5.
+                                    ${item.content}
                                     </p>
                                 </div>
                             </div>	
@@ -69,7 +66,7 @@
                                 <li>
                                     <span class="like" data-toggle="tooltip" title="like">
                                         <i class="far fa-thumbs-up"></i>
-                                        <ins>2.2k</ins>
+                                        <ins>${item.like}</ins>
                                     </span>
                                 </li>
 
@@ -112,35 +109,23 @@
                 </div>
                 <div class="coment-area">
                     <ul class="we-comet">
+                         <c:forEach var="comment" items="${item.commentCollection}">
                         <li>
+                           
                             <div class="comet-avatar">
-                                <img src="images/resources/comet-1.jpg" alt="">
+                                <img class ="avatar-header" src="${comment.user.images}" alt="">
                             </div>
                             <div class="we-comment">
                                 <div class="coment-head">
-                                    <h5><a href="time-line.html" title="">Jason borne</a></h5>
+                                    <h5><a href="time-line.html" title="">${comment.user.firstName} - ${comment.user.lastName}</a></h5>
                                     <span>1 year ago</span>
                                     <a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a>
                                 </div>
-                                <p>we are working for the dance and sing songs. this car is very awesome for the youngster. please vote this car and like our post</p>
+                                <p>${comment.contentComment}</p>
                             </div>
 
                         </li>
-                        <li>
-                            <div class="comet-avatar">
-                                <img src="images/resources/comet-1.jpg" alt="">
-                            </div>
-                            <div class="we-comment">
-                                <div class="coment-head">
-                                    <h5><a href="time-line.html" title="">Donald Trump</a></h5>
-                                    <span>1 week ago</span>
-                                    <a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a>
-                                </div>
-                                <p>we are working for the dance and sing songs. this video is very awesome for the youngster. please vote this video and like our channel
-                                    <i class="em em-smiley"></i>
-                                </p>
-                            </div>
-                        </li>
+                        </c:forEach>
                         <li>
                             <a href="#" title="" class="showmore underline">more comments</a>
                         </li>
@@ -175,6 +160,7 @@
                     </ul>
                 </div>
             </div>
+            </c:forEach>
         </div>
     </div>
 </div><!-- centerl meta -->

@@ -11,6 +11,7 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -129,7 +130,7 @@ public class User implements Serializable {
     private String userRole;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private Collection<Comment> commentCollection;
-    @OneToMany(mappedBy = "userid")
+    @OneToMany(fetch = FetchType.EAGER,mappedBy = "user")
     private Collection<Posts> postsCollection;
 
     

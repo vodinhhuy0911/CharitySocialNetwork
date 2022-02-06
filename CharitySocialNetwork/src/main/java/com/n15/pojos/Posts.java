@@ -12,6 +12,7 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -54,6 +55,10 @@ public class Posts implements Serializable {
     private Integer id;
     @Lob
     @Size(max = 65535)
+    @Column(name = "title")
+    private String title;
+    @Lob
+    @Size(max = 65535)
     @Column(name = "content")
     private String content;
     @Size(max = 255)
@@ -67,16 +72,17 @@ public class Posts implements Serializable {
     @Column(name = "time_start")
     @Temporal(TemporalType.TIMESTAMP)
     private Date timeStart;
+    
     @Column(name = "time_end")
     @Temporal(TemporalType.TIMESTAMP)
     private Date timeEnd;
     @Column(name = "price")
     private Long price;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "postId")
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL, mappedBy = "postId")
     private Collection<Comment> commentCollection;
     @JoinColumn(name = "userid", referencedColumnName = "id")
-    @ManyToOne
-    private User userid;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private User user;
 
     public Posts() {
     }
@@ -158,13 +164,7 @@ public class Posts implements Serializable {
         this.commentCollection = commentCollection;
     }
 
-    public User getUserid() {
-        return userid;
-    }
-
-    public void setUserid(User userid) {
-        this.userid = userid;
-    }
+    
 
     @Override
     public int hashCode() {
@@ -189,6 +189,20 @@ public class Posts implements Serializable {
     @Override
     public String toString() {
         return "com.n15.pojos.Posts[ id=" + id + " ]";
+    }
+
+    /**
+     * @return the user
+     */
+    public User getUser() {
+        return user;
+    }
+
+    /**
+     * @param user the user to set
+     */
+    public void setUser(User user) {
+        this.user = user;
     }
     
 }
