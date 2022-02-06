@@ -6,7 +6,9 @@
 package com.n15.controllers;
 
 import com.n15.pojos.User;
+import com.n15.service.PostService;
 import com.n15.service.UserService;
+import java.util.Map;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -22,6 +25,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class UserController {
 
+    @Autowired
+    private PostService postService;
     @Autowired
     private UserService userDetailsService;
 
@@ -66,10 +71,18 @@ public class UserController {
     }
 
     @RequestMapping("/timeline")
-    public String timeline() {
-        return "timeline";
+    public String timeline(Model model, HttpSession session, @RequestParam(required = false) Map<String, String> params)
+    {
+        if(session.getAttribute("currentUser") == null)
+            return"redirect:/login";
+        else
+        {
+            model.addAttribute("post",this.postService.getPosts(params.getOrDefault("kw", "")));
+            
+            return "timeline";
+        }
     }
-
+//################################################
     @RequestMapping("/message")
     public String message() {
         return "message";

@@ -111,7 +111,6 @@
                     <ul class="we-comet">
                          <c:forEach var="comment" items="${item.commentCollection}">
                         <li>
-                           
                             <div class="comet-avatar">
                                 <img class ="avatar-header" src="${comment.user.images}" alt="">
                             </div>

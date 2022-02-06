@@ -1,4 +1,6 @@
-
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<c:url value="/register" var="action"/>
             <section>
                 <div class="feature-photo">
                     <figure><img src="images/resources/timeline-1.jpg" alt=""></figure>
@@ -6,26 +8,28 @@
                         <span>1205 followers</span>
                         <a href="#" title="" data-ripple="">Add Friend</a>
                     </div>
-                    <form class="edit-phto">
+                    <form:form method="post" action="${action}" class="edit-phto">
                         <i class="fa fa-camera-retro"></i>
                         <label class="fileContainer">
                             Edit Cover Photo
-                            <input type="file"/>
+                            <form:form path="images" type="file"/>
+                            <input type="submit" value="save"/>
                         </label>
-                    </form>
+                    </form:form>
                     <div class="container-fluid">
                         <div class="row merged">
                             <div class="col-lg-2 col-sm-3">
                                 <div class="user-avatar">
                                     <figure>
                                         <img class="avatar-display" src="${currentUser.images}" alt="">
-                                        <form class="edit-phto">
+                                        <form:form method="post" action="${action}" class="edit-phto">
                                             <i class="fa fa-camera-retro"></i>
                                             <label class="fileContainer">
                                                 Edit Display Photo
-                                                <input type="file"/>
+                                                <input path="coverPhoto" id="coverPhoto" type="file"/>
+                                                <input type="submit" value="save"/>
                                             </label>
-                                        </form>
+                                        </form:form>
                                     </figure>
                                 </div>
                             </div>

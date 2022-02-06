@@ -37,6 +37,7 @@ public class HomeController {
         else
         {
             model.addAttribute("post",this.postService.getPosts(params.getOrDefault("kw", "")));
+            
             return "indexLayout";
         }
     }
