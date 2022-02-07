@@ -282,11 +282,11 @@ $(function() {
 	  $("span.main-menu").on("click", function(){
 	     $(".side-panel").addClass('active');
 		  $(".theme-layout").addClass('active');
-		  return false;
+		  return true;
 	  });
 
-	  $('.theme-layout').on("click",function(){
-		  $(this).removeClass('active');
+	  $('span.close').on("click",function(){
+		  $(".theme-layout").removeClass('active');
 	     $(".side-panel").removeClass('active');
 		  
 	     

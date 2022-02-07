@@ -59,7 +59,7 @@
                 </section> 
             </div>
 
-            <script src="<c:url value="js/main.min.js"/>"></script>
+        <script src="<c:url value="js/main.min.js"/>"></script>
         <script src="<c:url value="js/script.js"/>"></script>
         <script src="<c:url value="js/map-init.js"/>"></script>
         <script src="<c:url value="js/echarts.min.js"/>"></script>
