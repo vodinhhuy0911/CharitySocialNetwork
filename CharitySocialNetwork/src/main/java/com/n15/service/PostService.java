@@ -14,4 +14,5 @@ import java.util.List;
  */
 public interface PostService {
     List<Posts> getPosts(String kw);
+    boolean addPost(Posts post);
 }

@@ -5,7 +5,9 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<c:url value="/" var="action"/>
 <div class="col-lg-6">
     <div class="central-meta">
         <div class="new-postbox">
@@ -167,28 +169,25 @@
 <div class="side-panel">
     
     <h4 class="panel-title">Post Auction</h4>
-    <form method="post">
+    <form:form method="post" action="${action}" enctype="multipart/form-data" modelAttribute="product">
         <div class="form-group">	
-            <input path="firstName" id="firstName" type="text" required="required"/>
-            <label class="control-label" for="firstname">Title</label><i class="mtrl-select"></i>
+            <form:input path="title" id="title" type="text" required="required"/>
+            <label class="control-label" for="title">Title</label><i class="mtrl-select"></i>
+        </div>
+       
+        <div class="form-group">	
+            <form:input path="price" id="price" type="text" required="required"/>
+            <label class="control-label" for="price">Starting Price</label><i class="mtrl-select"></i>
         </div>
         <div class="form-group">	
-            <input path="firstName" id="firstName" type="text" required="required"/>
-            <label class="control-label" for="firstname">Content</label><i class="mtrl-select"></i>
+            <form:textarea path="content" id="content" type="text" required="required"></form:textarea>
+            <label class="control-label" for="content">Content</label><i class="mtrl-select"></i>
         </div>
         <div class="form-group">	
-            <input path="firstName" id="firstName" type="text" required="required"/>
-            <label class="control-label" for="firstname">Starting Price</label><i class="mtrl-select"></i>
+            <form:input path="file" id="file" type="file" required="required"/>
+            <label class="control-label" for="file">Images</label><i class="mtrl-select"></i>
         </div>
-        <div class="form-group">	
-            <textarea path="firstName" id="firstName" type="text" required="required"></textarea>
-            <label class="control-label" for="firstname">Content</label><i class="mtrl-select"></i>
-        </div>
-        <div class="form-group">	
-            <textarea path="firstName" id="firstName" type="text" required="required"></textarea>
-            <label class="control-label" for="firstname">Images</label><i class="mtrl-select"></i>
-        </div>
-        
+        <input type="submit" value="Post"/>
         <span class="close">Close</span>
-    </form>
+    </form:form>
 </div><!-- side panel -->		

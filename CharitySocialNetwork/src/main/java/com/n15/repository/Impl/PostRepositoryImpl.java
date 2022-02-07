@@ -45,5 +45,19 @@ public class PostRepositoryImpl implements PostRepository{
         Query q = session.createQuery(query);
         return q.getResultList();
     }
+
+    @Override
+    public boolean addPost(Posts post) {
+        try{
+            Session session = this.sessionFactory.getObject().getCurrentSession();
+            session.save(post);
+            return true;
+        }
+        catch(Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return false;
+    }
     
 }

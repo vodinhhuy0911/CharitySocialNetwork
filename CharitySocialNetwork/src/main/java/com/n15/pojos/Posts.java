@@ -5,6 +5,7 @@
  */
 package com.n15.pojos;
 
+import com.cloudinary.Cloudinary;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
@@ -25,9 +26,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -46,6 +49,20 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Posts.findByTimeEnd", query = "SELECT p FROM Posts p WHERE p.timeEnd = :timeEnd"),
     @NamedQuery(name = "Posts.findByPrice", query = "SELECT p FROM Posts p WHERE p.price = :price")})
 public class Posts implements Serializable {
+
+    /**
+     * @return the title
+     */
+    public String getTitle() {
+        return title;
+    }
+
+    /**
+     * @param title the title to set
+     */
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -83,6 +100,9 @@ public class Posts implements Serializable {
     @JoinColumn(name = "userid", referencedColumnName = "id")
     @ManyToOne(fetch = FetchType.EAGER)
     private User user;
+    
+    @Transient
+    private MultipartFile file;
 
     public Posts() {
     }
@@ -204,5 +224,21 @@ public class Posts implements Serializable {
     public void setUser(User user) {
         this.user = user;
     }
+
+    /**
+     * @return the file
+     */
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    /**
+     * @param file the file to set
+     */
+    public void setFile(MultipartFile file) {
+        this.file = file;
+    }
+
+   
     
 }

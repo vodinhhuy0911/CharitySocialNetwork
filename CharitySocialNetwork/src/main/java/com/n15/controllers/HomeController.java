@@ -5,6 +5,7 @@
  */
 package com.n15.controllers;
 
+import com.n15.pojos.Posts;
 import com.n15.service.PostService;
 import java.util.Map;
 import javax.servlet.http.HttpSession;
@@ -37,7 +38,7 @@ public class HomeController {
         else
         {
             model.addAttribute("post",this.postService.getPosts(params.getOrDefault("kw", "")));
-            
+            model.addAttribute("product",new Posts());
             return "indexLayout";
         }
     }

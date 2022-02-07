@@ -5,7 +5,14 @@
  */
 package com.n15.controllers;
 
+import com.n15.pojos.Posts;
+import com.n15.pojos.User;
+import com.n15.service.PostService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -15,9 +22,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ProductController {
     
+    @Autowired
+    private PostService postService;
     @RequestMapping("/auction")
     public String product()
     {
         return "auction";
+    }
+    
+    @PostMapping("/")
+    public String addProduct(Model model, @ModelAttribute(value = "product") Posts post) {
+        //làm trong validate confirm pass
+        String error = null;
+            if (this.postService.addPost(post)) {
+                return "redirect:/";
+            } else {
+                error = "Đã có lỗi xảy ra";
+            }
+        
+        model.addAttribute("errorMsg", error);
+        return "register";
+
     }
 }
