@@ -22,8 +22,9 @@
         </div>
     </div><!-- add post new box -->
     <div class="loadMore">
-        <div class="central-meta item">
-            <c:forEach var="item" items="${post}">
+        <c:forEach var="item" items="${post}">
+            <div class="central-meta item">
+
                 <div class="user-post">
                     <div class="friend-info">
                         <figure>
@@ -31,19 +32,20 @@
                         </figure>
                         <div class="friend-name">
                             <ins><a href="time-line.html" title="">${item.user.firstName} ${item.user.lastName}</a></ins>
-                            <span>Published: ${item.published}</span>
+                            <span>Published: test</span>
+
                         </div>
                         <div class="post-meta">
-                            <a href="#"><img src="${item.image}" alt=""></a>
+                            <a href="#"><img src="${item.images}" alt=""></a>
                             <div class="more-pix">
                                 <h2 class="main-title text-center">Shoes for Men Black</h2>
                                 <div class="row">
                                     <div class="offset-md-1 col-lg-10">
                                         <p class="prod-info text-center">
-                                            Time start: ${item.timeStart}
+                                            Time start: 
                                         </p>
                                         <p class="prod-info text-center">
-                                            Time end: ${item.timeEnd}
+                                            Time end: 
                                         </p>
                                         <p class="prod-info text-center">
                                             Price: ${item.price}
@@ -69,7 +71,7 @@
                                     <li>
                                         <span class="like" data-toggle="tooltip" title="like">
                                             <i class="far fa-thumbs-up"></i>
-                                            <ins>${item.like}</ins>
+                                            <ins>3</ins>
                                         </span>
                                     </li>
 
@@ -112,6 +114,7 @@
                     </div>
                     <div class="coment-area">
                         <ul class="we-comet">
+                            <%--<c:if test="${item.commentCollection.count() != 0} ">--%>
                             <c:forEach var="comment" items="${item.commentCollection}">
                                 <li>
                                     <div class="comet-avatar">
@@ -128,6 +131,7 @@
 
                                 </li>
                             </c:forEach>
+                            <%--</c:if>--%>
                             <li>
                                 <a href="#" title="" class="showmore underline">more comments</a>
                             </li>
@@ -162,32 +166,33 @@
                         </ul>
                     </div>
                 </div>
-            </c:forEach>
-        </div>
+
+            </div>
+        </c:forEach>
     </div>
 </div><!-- centerl meta -->
 <div class="side-panel">
-    
+
     <h4 class="panel-title">Post Auction</h4>
     <form:form method="post" action="${action}" enctype="multipart/form-data" modelAttribute="product">
         <div class="form-group">	
-            <form:input path="title" id="title" type="text" required="required"/>
+            <form:input path="titles" id="title" type="text" required="required"/>
             <label class="control-label" for="title">Title</label><i class="mtrl-select"></i>
         </div>
-       
+
         <div class="form-group">	
             <form:input path="price" id="price" type="text" required="required"/>
             <label class="control-label" for="price">Starting Price</label><i class="mtrl-select"></i>
         </div>
         <div class="form-group">	
             <form:textarea path="content" id="content" type="text" required="required"></form:textarea>
-            <label class="control-label" for="content">Content</label><i class="mtrl-select"></i>
-        </div>
-        <div class="form-group">	
+                <label class="control-label" for="content">Content</label><i class="mtrl-select"></i>
+            </div>
+            <div class="form-group">	
             <form:input path="file" id="file" type="file" required="required"/>
             <label class="control-label" for="file">Images</label><i class="mtrl-select"></i>
         </div>
         <input type="submit" value="Post"/>
         <span class="close">Close</span>
     </form:form>
-</div><!-- side panel -->		
+</div>		

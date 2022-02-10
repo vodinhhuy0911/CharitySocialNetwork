@@ -3,6 +3,7 @@ com\n15\configs\handler\LoginSuccessHandler.class
 com\n15\controllers\HomeController.class
 com\n15\controllers\ProductController.class
 com\n15\repository\Impl\CommentRepositoryImpl.class
+com\n15\formatter\UserFormatter.class
 com\n15\service\PostService.class
 com\n15\repository\PostRepository.class
 com\n15\configs\SecurityWebAppInitializer.class

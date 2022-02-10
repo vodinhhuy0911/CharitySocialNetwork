@@ -63,6 +63,10 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
         <put-attribute name ="title" value="Notification"/>
         <put-attribute name ="content" value="/WEB-INF/jsp/insights.jsp"/>
     </definition>
+    <definition name ="posts" extends="timeline">
+        <put-attribute name ="title" value="Notification"/>
+        <put-attribute name ="content" value="/WEB-INF/jsp/addPost.jsp"/>
+    </definition>
     <definition name ="shop" extends="auction">
         <put-attribute name ="title" value="Shop"/>
         <put-attribute name ="content" value="/WEB-INF/jsp/shop.jsp"/>

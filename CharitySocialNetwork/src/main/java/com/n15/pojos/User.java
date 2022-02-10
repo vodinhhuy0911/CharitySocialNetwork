@@ -255,15 +255,15 @@ public class User implements Serializable {
     public void setCommentCollection(Collection<Comment> commentCollection) {
         this.commentCollection = commentCollection;
     }
-
-    @XmlTransient
-    public Collection<Posts> getPostsCollection() {
-        return postsCollection;
-    }
-
-    public void setPostsCollection(Collection<Posts> postsCollection) {
-        this.postsCollection = postsCollection;
-    }
+//
+//    @XmlTransient
+//    public Collection<Posts> getPostsCollection() {
+//        return postsCollection;
+//    }
+//
+//    public void setPostsCollection(Collection<Posts> postsCollection) {
+//        this.postsCollection = postsCollection;
+//    }
 
     @Override
     public int hashCode() {

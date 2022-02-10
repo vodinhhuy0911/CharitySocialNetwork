@@ -48,14 +48,14 @@ public class PostRepositoryImpl implements PostRepository{
 
     @Override
     public boolean addPost(Posts post) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
         try{
-            Session session = this.sessionFactory.getObject().getCurrentSession();
             session.save(post);
             return true;
         }
         catch(Exception ex)
         {
-            ex.printStackTrace();
+            System.out.print(ex.getMessage());
         }
         return false;
     }

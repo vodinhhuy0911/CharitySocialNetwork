@@ -5,11 +5,14 @@
  */
 package com.n15.pojos;
 
+import com.n15.pojos.Posts;
+import com.n15.pojos.User;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -59,7 +62,7 @@ public class Comment implements Serializable {
     private Posts postId;
     @JoinColumns({
         @JoinColumn(name = "user_id", referencedColumnName = "id")})
-    @ManyToOne(optional = false)
+    @ManyToOne(fetch = FetchType.EAGER,optional = false)
     private User user;
 
     public Comment() {
@@ -136,7 +139,7 @@ public class Comment implements Serializable {
 
     @Override
     public String toString() {
-        return "com.n15.pojos.Comment[ id=" + id + " ]";
+        return "com.n15.controllers.Comment[ id=" + id + " ]";
     }
     
 }

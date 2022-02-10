@@ -5,10 +5,8 @@
  */
 package com.n15.pojos;
 
-import com.cloudinary.Cloudinary;
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -24,9 +22,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -42,27 +39,16 @@ import org.springframework.web.multipart.MultipartFile;
 @NamedQueries({
     @NamedQuery(name = "Posts.findAll", query = "SELECT p FROM Posts p"),
     @NamedQuery(name = "Posts.findById", query = "SELECT p FROM Posts p WHERE p.id = :id"),
-    @NamedQuery(name = "Posts.findByImage", query = "SELECT p FROM Posts p WHERE p.image = :image"),
-    @NamedQuery(name = "Posts.findByPublished", query = "SELECT p FROM Posts p WHERE p.published = :published"),
-    @NamedQuery(name = "Posts.findByLike", query = "SELECT p FROM Posts p WHERE p.like = :like"),
-    @NamedQuery(name = "Posts.findByTimeStart", query = "SELECT p FROM Posts p WHERE p.timeStart = :timeStart"),
-    @NamedQuery(name = "Posts.findByTimeEnd", query = "SELECT p FROM Posts p WHERE p.timeEnd = :timeEnd"),
+    @NamedQuery(name = "Posts.findByTitles", query = "SELECT p FROM Posts p WHERE p.titles = :titles"),
     @NamedQuery(name = "Posts.findByPrice", query = "SELECT p FROM Posts p WHERE p.price = :price")})
 public class Posts implements Serializable {
 
-    /**
-     * @return the title
-     */
-    public String getTitle() {
-        return title;
-    }
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL, mappedBy = "postId")
+    private Collection<Comment> commentCollection;
 
-    /**
-     * @param title the title to set
-     */
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    @JoinColumn(name = "userid", referencedColumnName = "id")
+    @ManyToOne
+    private User user;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -70,37 +56,27 @@ public class Posts implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    @Basic(optional = false)
+    @NotNull
     @Lob
-    @Size(max = 65535)
-    @Column(name = "title")
-    private String title;
-    @Lob
-    @Size(max = 65535)
+    @Size(min = 1, max = 65535)
     @Column(name = "content")
     private String content;
-    @Size(max = 255)
-    @Column(name = "image")
-    private String image;
-    @Column(name = "published")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date published;
-    @Column(name = "like")
-    private Integer like;
-    @Column(name = "time_start")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date timeStart;
-    
-    @Column(name = "time_end")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date timeEnd;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 45)
+    @Column(name = "titles")
+    private String titles;
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "price")
-    private Long price;
-    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL, mappedBy = "postId")
-    private Collection<Comment> commentCollection;
-    @JoinColumn(name = "userid", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.EAGER)
-    private User user;
-    
+    private long price;
+    @Basic(optional = false)
+    @NotNull
+    @Lob
+    @Size(min = 1, max = 65535)
+    @Column(name = "images")
+    private String images;
     @Transient
     private MultipartFile file;
 
@@ -109,6 +85,14 @@ public class Posts implements Serializable {
 
     public Posts(Integer id) {
         this.id = id;
+    }
+
+    public Posts(Integer id, String content, String titles, long price, String images) {
+        this.id = id;
+        this.content = content;
+        this.titles = titles;
+        this.price = price;
+        this.images = images;
     }
 
     public Integer getId() {
@@ -127,64 +111,29 @@ public class Posts implements Serializable {
         this.content = content;
     }
 
-    public String getImage() {
-        return image;
+    public String getTitles() {
+        return titles;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setTitles(String titles) {
+        this.titles = titles;
     }
 
-    public Date getPublished() {
-        return published;
-    }
-
-    public void setPublished(Date published) {
-        this.published = published;
-    }
-
-    public Integer getLike() {
-        return like;
-    }
-
-    public void setLike(Integer like) {
-        this.like = like;
-    }
-
-    public Date getTimeStart() {
-        return timeStart;
-    }
-
-    public void setTimeStart(Date timeStart) {
-        this.timeStart = timeStart;
-    }
-
-    public Date getTimeEnd() {
-        return timeEnd;
-    }
-
-    public void setTimeEnd(Date timeEnd) {
-        this.timeEnd = timeEnd;
-    }
-
-    public Long getPrice() {
+    public long getPrice() {
         return price;
     }
 
-    public void setPrice(Long price) {
+    public void setPrice(long price) {
         this.price = price;
     }
 
-    @XmlTransient
-    public Collection<Comment> getCommentCollection() {
-        return commentCollection;
+    public String getImages() {
+        return images;
     }
 
-    public void setCommentCollection(Collection<Comment> commentCollection) {
-        this.commentCollection = commentCollection;
+    public void setImages(String images) {
+        this.images = images;
     }
-
-    
 
     @Override
     public int hashCode() {
@@ -212,20 +161,6 @@ public class Posts implements Serializable {
     }
 
     /**
-     * @return the user
-     */
-    public User getUser() {
-        return user;
-    }
-
-    /**
-     * @param user the user to set
-     */
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    /**
      * @return the file
      */
     public MultipartFile getFile() {
@@ -239,6 +174,21 @@ public class Posts implements Serializable {
         this.file = file;
     }
 
-   
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @XmlTransient
+    public Collection<Comment> getCommentCollection() {
+        return commentCollection;
+    }
+
+    public void setCommentCollection(Collection<Comment> commentCollection) {
+        this.commentCollection = commentCollection;
+    }
     
 }

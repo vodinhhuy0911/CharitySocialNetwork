@@ -43,7 +43,7 @@ public class PostServiceImpl implements PostService {
             Map r = this.cloudinary.uploader().upload(post.getFile().getBytes(),
                     ObjectUtils.asMap("resource_type", "auto"));
             String img = (String) r.get("secure_url");
-            post.setImage(img);
+            post.setImages(img);
             return this.postRepository.addPost(post);
         } catch (IOException ex) {
             Logger.getLogger(PostServiceImpl.class.getName()).log(Level.SEVERE, null, ex);

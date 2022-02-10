@@ -29,8 +29,14 @@ public class ProductController {
     {
         return "auction";
     }
+    @RequestMapping("/post")
+    public String addPostView(Model model)
+    {
+        model.addAttribute("product",new Posts());
+        return "posts";
+    }
     
-    @PostMapping("/")
+    @PostMapping("/post")
     public String addProduct(Model model, @ModelAttribute(value = "product") Posts post) {
         //làm trong validate confirm pass
         String error = null;
@@ -41,7 +47,8 @@ public class ProductController {
             }
         
         model.addAttribute("errorMsg", error);
-        return "register";
+        return "posts";
 
     }
+    
 }

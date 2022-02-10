@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -41,5 +42,21 @@ public class HomeController {
             model.addAttribute("product",new Posts());
             return "indexLayout";
         }
+    }
+   
+    
+    @PostMapping("/")
+    public String addProduct1(Model model, @ModelAttribute(value = "product") Posts post) {
+        //làm trong validate confirm pass
+        String error = null;
+            if (this.postService.addPost(post)) {
+                return "redirect:/";
+            } else {
+                error = "Đã có lỗi xảy ra";
+            }
+        
+        model.addAttribute("errorMsg", error);
+        return "indexLayout";
+
     }
 }
