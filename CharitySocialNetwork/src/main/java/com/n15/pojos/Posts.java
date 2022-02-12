@@ -43,6 +43,10 @@ import org.springframework.web.multipart.MultipartFile;
     @NamedQuery(name = "Posts.findByPrice", query = "SELECT p FROM Posts p WHERE p.price = :price")})
 public class Posts implements Serializable {
 
+    @JoinColumn(name = "category_id", referencedColumnName = "idcategories")
+    @ManyToOne
+    private Categories category;
+
     @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL, mappedBy = "postId")
     private Collection<Comment> commentCollection;
 
@@ -189,6 +193,14 @@ public class Posts implements Serializable {
 
     public void setCommentCollection(Collection<Comment> commentCollection) {
         this.commentCollection = commentCollection;
+    }
+
+    public Categories getCategory() {
+        return category;
+    }
+
+    public void setCategory(Categories category) {
+        this.category = category;
     }
     
 }

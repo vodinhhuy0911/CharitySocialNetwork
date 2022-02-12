@@ -29,26 +29,26 @@ public class ProductController {
     {
         return "auction";
     }
-    @RequestMapping("/post")
-    public String addPostView(Model model)
-    {
-        model.addAttribute("product",new Posts());
-        return "posts";
-    }
+//    @RequestMapping("/post")
+//    public String addPostView(Model model)
+//    {
+//        model.addAttribute("product",new Posts());
+//        return "posts";
+//    }
     
-    @PostMapping("/post")
-    public String addProduct(Model model, @ModelAttribute(value = "product") Posts post) {
-        //làm trong validate confirm pass
-        String error = null;
-            if (this.postService.addPost(post)) {
-                return "redirect:/";
-            } else {
-                error = "Đã có lỗi xảy ra";
-            }
-        
-        model.addAttribute("errorMsg", error);
-        return "posts";
-
-    }
+//    @PostMapping("/post")
+//    public String addProduct(Model model, @ModelAttribute(value = "product") Posts post) {
+//        //làm trong validate confirm pass
+//        String error = null;
+//            if (this.postService.addPost(post)) {
+//                return "redirect:/";
+//            } else {
+//                error = "Đã có lỗi xảy ra";
+//            }
+//        
+//        model.addAttribute("errorMsg", error);
+//        return "posts";
+//
+//    }
     
 }

@@ -9,6 +9,8 @@ D:\Subject\Lap trinh java\BTL\CharitySocialNetwork\CharitySocialNetwork\src\main
 D:\Subject\Lap trinh java\BTL\CharitySocialNetwork\CharitySocialNetwork\src\main\java\com\n15\pojos\User.java
 D:\Subject\Lap trinh java\BTL\CharitySocialNetwork\CharitySocialNetwork\src\main\java\com\n15\configs\HibernateCofig.java
 D:\Subject\Lap trinh java\BTL\CharitySocialNetwork\CharitySocialNetwork\src\main\java\com\n15\repository\Impl\CommentRepositoryImpl.java
+D:\Subject\Lap trinh java\BTL\CharitySocialNetwork\CharitySocialNetwork\src\main\java\com\n15\pojos\Categories.java
+D:\Subject\Lap trinh java\BTL\CharitySocialNetwork\CharitySocialNetwork\src\main\java\com\n15\formatter\CategoryFormatter.java
 D:\Subject\Lap trinh java\BTL\CharitySocialNetwork\CharitySocialNetwork\src\main\java\com\n15\repository\CommentRepository.java
 D:\Subject\Lap trinh java\BTL\CharitySocialNetwork\CharitySocialNetwork\src\main\java\com\n15\service\Impl\CommentServiceImpl.java
 D:\Subject\Lap trinh java\BTL\CharitySocialNetwork\CharitySocialNetwork\src\main\java\com\n15\repository\UserRepository.java

@@ -1,12 +1,17 @@
+com\n15\service\Impl\CategoryServiceImpl.class
 com\n15\controllers\UserController.class
 com\n15\configs\handler\LoginSuccessHandler.class
 com\n15\controllers\HomeController.class
 com\n15\controllers\ProductController.class
+com\n15\service\CategoryService.class
 com\n15\repository\Impl\CommentRepositoryImpl.class
 com\n15\formatter\UserFormatter.class
 com\n15\service\PostService.class
+com\n15\repository\Impl\CategoryRepositoryImpl.class
 com\n15\repository\PostRepository.class
+com\n15\repository\CategoryRepository.class
 com\n15\configs\SecurityWebAppInitializer.class
+com\n15\pojos\Categories_.class
 com\n15\configs\DispatcherServletInitializer.class
 com\n15\configs\TilesConfig.class
 com\n15\service\CommentService.class
@@ -16,6 +21,7 @@ com\n15\pojos\User.class
 com\n15\configs\WebApplicationContextConfig.class
 com\n15\repository\Impl\PostRepositoryImpl.class
 com\n15\repository\CommentRepository.class
+com\n15\pojos\Categories.class
 com\n15\service\UserService.class
 com\n15\repository\UserRepository.class
 com\n15\pojos\Comment.class
@@ -23,6 +29,7 @@ com\n15\pojos\Comment_.class
 com\n15\configs\HibernateCofig.class
 com\n15\pojos\User_.class
 com\n15\configs\handler\LogoutHandler.class
+com\n15\formatter\CategoryFormatter.class
 com\n15\pojos\Posts.class
 com\n15\service\Impl\CommentServiceImpl.class
 com\n15\service\Impl\UserServiceImpl.class

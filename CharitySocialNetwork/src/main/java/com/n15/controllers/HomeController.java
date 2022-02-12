@@ -6,6 +6,8 @@
 package com.n15.controllers;
 
 import com.n15.pojos.Posts;
+import com.n15.pojos.User;
+import com.n15.service.CategoryService;
 import com.n15.service.PostService;
 import java.util.Map;
 import javax.servlet.http.HttpSession;
@@ -26,6 +28,8 @@ public class HomeController {
     
     @Autowired
     private PostService postService;
+    @Autowired
+    private CategoryService categoryService;
 //    @ModelAttribute
 //    public void commonAttrs(Model model, HttpSession session)
 //    {
@@ -40,16 +44,18 @@ public class HomeController {
         {
             model.addAttribute("post",this.postService.getPosts(params.getOrDefault("kw", "")));
             model.addAttribute("product",new Posts());
+            model.addAttribute("cate",this.categoryService.getCategory());
             return "indexLayout";
         }
     }
    
     
     @PostMapping("/")
-    public String addProduct1(Model model, @ModelAttribute(value = "product") Posts post) {
+    public String addProduct1(HttpSession session, Model model, @ModelAttribute(value = "product") Posts post) {
         //làm trong validate confirm pass
         String error = null;
-            if (this.postService.addPost(post)) {
+        User user = (User) session.getAttribute("currentUser");
+            if (this.postService.addPost(post, user)) {
                 return "redirect:/";
             } else {
                 error = "Đã có lỗi xảy ra";

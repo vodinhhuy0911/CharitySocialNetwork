@@ -5,6 +5,7 @@
     <class>com.n15.pojos.User</class>
     <class>com.n15.pojos.Comment</class>
     <class>com.n15.pojos.Posts</class>
+    <class>com.n15.pojos.Categories</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/charity_social_network?zeroDateTimeBehavior=CONVERT_TO_NULL"/>

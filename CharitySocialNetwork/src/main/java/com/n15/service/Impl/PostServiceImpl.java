@@ -37,13 +37,14 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public boolean addPost(Posts post) {
+    public boolean addPost(Posts post, User user) {
 
         try {
             Map r = this.cloudinary.uploader().upload(post.getFile().getBytes(),
                     ObjectUtils.asMap("resource_type", "auto"));
             String img = (String) r.get("secure_url");
             post.setImages(img);
+            post.setUser(user);
             return this.postRepository.addPost(post);
         } catch (IOException ex) {
             Logger.getLogger(PostServiceImpl.class.getName()).log(Level.SEVERE, null, ex);

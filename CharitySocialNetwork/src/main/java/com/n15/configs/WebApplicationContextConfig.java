@@ -7,6 +7,7 @@ package com.n15.configs;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
+import com.n15.formatter.CategoryFormatter;
 import com.n15.formatter.UserFormatter;
 import java.util.HashSet;
 import java.util.Set;
@@ -99,5 +100,6 @@ public class WebApplicationContextConfig implements WebMvcConfigurer{
     public void addFormatters(FormatterRegistry registry)
     {
         registry.addFormatter(new UserFormatter());
+        registry.addFormatter(new CategoryFormatter());
     }
 }

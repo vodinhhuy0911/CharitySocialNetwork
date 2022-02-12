@@ -6,6 +6,7 @@
 package com.n15.service;
 
 import com.n15.pojos.Posts;
+import com.n15.pojos.User;
 import java.util.List;
 
 /**
@@ -14,5 +15,5 @@ import java.util.List;
  */
 public interface PostService {
     List<Posts> getPosts(String kw);
-    boolean addPost(Posts post);
+    boolean addPost(Posts post, User user);
 }

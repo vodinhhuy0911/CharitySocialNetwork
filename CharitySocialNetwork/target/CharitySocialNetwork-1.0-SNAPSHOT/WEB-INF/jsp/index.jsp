@@ -192,6 +192,13 @@
             <form:input path="file" id="file" type="file" required="required"/>
             <label class="control-label" for="file">Images</label><i class="mtrl-select"></i>
         </div>
+            <div class="form-group">
+                <form:select type="text" id="cate" path ="category" >
+                    <c:forEach var="item" items="${cate}">
+                        <option value="${item.idcategories}">${item.name}</option>
+                    </c:forEach>
+                </form:select>
+            </div>
         <input type="submit" value="Post"/>
         <span class="close">Close</span>
     </form:form>
