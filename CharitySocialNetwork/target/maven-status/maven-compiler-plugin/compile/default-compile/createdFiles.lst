@@ -16,6 +16,7 @@ com\n15\configs\DispatcherServletInitializer.class
 com\n15\configs\TilesConfig.class
 com\n15\service\CommentService.class
 com\n15\repository\Impl\UserRepositoryImpl.class
+com\n15\pojos\ImagesProduct_.class
 com\n15\service\Impl\PostServiceImpl.class
 com\n15\pojos\User.class
 com\n15\configs\WebApplicationContextConfig.class
@@ -27,6 +28,7 @@ com\n15\repository\UserRepository.class
 com\n15\pojos\Comment.class
 com\n15\pojos\Comment_.class
 com\n15\configs\HibernateCofig.class
+com\n15\pojos\ImagesProduct.class
 com\n15\pojos\User_.class
 com\n15\configs\handler\LogoutHandler.class
 com\n15\formatter\CategoryFormatter.class

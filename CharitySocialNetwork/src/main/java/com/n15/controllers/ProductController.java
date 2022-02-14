@@ -60,8 +60,17 @@ public class ProductController {
     }
     
     @RequestMapping("/shopDetail")
-    public String shopDetail() {
-        return "shopDetail";
+    public String shopDetail(Model model,HttpSession session, @RequestParam(required = false) Map<String, String> params) {
+        if (session.getAttribute("currentUser") == null) {
+            return "redirect:/login";
+        }
+        else
+        {
+            String productId = params.get("productId");
+            Posts p = this.postService.getPost(Integer.parseInt(productId));
+            model.addAttribute("product",p);
+            return "shopDetail";
+        }
     }
 //    @RequestMapping("/post")
 //    public String addPostView(Model model)

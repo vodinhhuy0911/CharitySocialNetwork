@@ -1,11 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="CharitySocialNetwork/css/main.min.css"/>
-        <link rel="stylesheet" href="CharitySocialNetwork/css/style.css"/>
-        <link rel="stylesheet" href="CharitySocialNetwork/css/strip.css"/>
-        <link rel="stylesheet" href="CharitySocialNetwork/css/color.css"/>
-        <link rel="stylesheet" href="CharitySocialNetwork/css/responsive.css"/>
-        <link rel="stylesheet" href="CharitySocialNetwork/css/cssButton.css"/>
+<link rel="stylesheet" href="CharitySocialNetwork/css/style.css"/>
+<link rel="stylesheet" href="CharitySocialNetwork/css/strip.css"/>
+<link rel="stylesheet" href="CharitySocialNetwork/css/color.css"/>
+<link rel="stylesheet" href="CharitySocialNetwork/css/responsive.css"/>
+<link rel="stylesheet" href="CharitySocialNetwork/css/cssButton.css"/>
 <section class="white-bg">
     <div class="gap100">
         <div class="container">
@@ -31,10 +31,13 @@
                                         <figure>
                                             <span class="new">New</span>
                                             <img src="${item.images}" alt="">
-                                            
+
                                         </figure>
                                         <div class="product-name">
-                                            <h5><a href="<c:url value="/shopDetail"/>" title="">${item.titles}</a></h5>
+                                            <c:url value="shopDetail" var="productPath">
+                                                <c:param name="productId" value="${item.id}"></c:param>
+                                            </c:url>
+                                            <h5><a href="<c:url value="${productPath}"/>" title="">${item.titles}</a></h5>
                                             <div class="prices">
                                                 <ins>$ ${item.price}</ins>
                                             </div>

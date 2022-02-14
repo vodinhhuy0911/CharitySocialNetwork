@@ -27,6 +27,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -42,6 +44,10 @@ import org.springframework.web.multipart.MultipartFile;
     @NamedQuery(name = "Posts.findByTitles", query = "SELECT p FROM Posts p WHERE p.titles = :titles"),
     @NamedQuery(name = "Posts.findByPrice", query = "SELECT p FROM Posts p WHERE p.price = :price")})
 public class Posts implements Serializable {
+
+    @Fetch(value = FetchMode.SUBSELECT)
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL, mappedBy = "post")
+    private Collection<ImagesProduct> imagesProductCollection;
 
     @JoinColumn(name = "category_id", referencedColumnName = "idcategories")
     @ManyToOne
@@ -201,6 +207,15 @@ public class Posts implements Serializable {
 
     public void setCategory(Categories category) {
         this.category = category;
+    }
+
+    @XmlTransient
+    public Collection<ImagesProduct> getImagesProductCollection() {
+        return imagesProductCollection;
+    }
+
+    public void setImagesProductCollection(Collection<ImagesProduct> imagesProductCollection) {
+        this.imagesProductCollection = imagesProductCollection;
     }
     
 }
