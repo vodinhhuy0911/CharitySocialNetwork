@@ -110,10 +110,7 @@ public class UserController {
 
 
 
-    @RequestMapping("/shopDetail")
-    public String shopDetail() {
-        return "shopDetail";
-    }
+    
 
     @RequestMapping("/shopCart")
     public String shopCart() {

@@ -31,24 +31,12 @@
                                         <figure>
                                             <span class="new">New</span>
                                             <img src="${item.images}" alt="">
-                                            <ul class="cart-optionz">
-                                                <li><a href="#" title="Add Cart" data-toggle="tooltip"><i class="ti-shopping-cart"></i></a></li>
-                                                <li><a href="#" title="Quick Shop" data-toggle="tooltip"><i class="ti-eye"></i></a></li>
-                                                <li><a href="#" title="Wishlist" data-toggle="tooltip"><i class="ti-heart"></i></a></li>
-                                                <li><a href="#" title="Compare" data-toggle="tooltip"><i class="ti-split-v-alt"></i></a></li>
-                                            </ul>
+                                            
                                         </figure>
                                         <div class="product-name">
                                             <h5><a href="<c:url value="/shopDetail"/>" title="">${item.titles}</a></h5>
-                                            <ul class="starz">
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                            </ul>
                                             <div class="prices">
-                                                <ins>${item.price}</ins>
+                                                <ins>$ ${item.price}</ins>
                                             </div>
                                         </div>
                                     </div>

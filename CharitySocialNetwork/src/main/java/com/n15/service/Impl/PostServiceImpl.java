@@ -52,4 +52,9 @@ public class PostServiceImpl implements PostService {
         return false;
     }
 
+    @Override
+    public Posts getPost(int postId) {
+        return this.postRepository.getPost(postId);
+    }
+
 }

@@ -59,5 +59,11 @@ public class PostRepositoryImpl implements PostRepository{
         }
         return false;
     }
+
+    @Override
+    public Posts getPost(int postId) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        return session.get(Posts.class,postId);
+    }
     
 }

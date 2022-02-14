@@ -8,11 +8,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <div class="theme-layout">
-
-
-
-    
-
     <section>
         <div class="gap">
             <div class="container">

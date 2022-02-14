@@ -72,7 +72,7 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
         <put-attribute name ="content" value="/WEB-INF/jsp/shop.jsp"/>
     </definition>
     <definition name ="shopDetail" extends="shop">
-        <put-attribute name ="title" value="shop"/>
+        <put-attribute name ="title" value="Shop"/>
         <put-attribute name ="content" value="/WEB-INF/jsp/shopDetail.jsp"/>
     </definition>
     <definition name ="shopCart" extends="shop">

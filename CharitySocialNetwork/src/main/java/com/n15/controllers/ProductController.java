@@ -58,6 +58,11 @@ public class ProductController {
             return "shop";
         }
     }
+    
+    @RequestMapping("/shopDetail")
+    public String shopDetail() {
+        return "shopDetail";
+    }
 //    @RequestMapping("/post")
 //    public String addPostView(Model model)
 //    {
