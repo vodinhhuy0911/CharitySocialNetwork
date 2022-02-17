@@ -44,7 +44,7 @@ public class PostServiceImpl implements PostService {
                     ObjectUtils.asMap("resource_type", "auto"));
             String img = (String) r.get("secure_url");
             post.setImages(img);
-            post.setUser(user);
+            post.setUserid(user);
             return this.postRepository.addPost(post);
         } catch (IOException ex) {
             Logger.getLogger(PostServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
@@ -55,6 +55,11 @@ public class PostServiceImpl implements PostService {
     @Override
     public Posts getPost(int postId) {
         return this.postRepository.getPost(postId);
+    }
+
+    @Override
+    public List<Posts> getPostsById(int i) {
+        return this.postRepository.getPostsById(i);
     }
 
 }

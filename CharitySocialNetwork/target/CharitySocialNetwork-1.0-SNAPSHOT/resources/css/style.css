@@ -9453,10 +9453,7 @@ button.submit-checkout {
     padding-top: 10px;
 }
 
-.proceed {
-    float: right;
-    margin-top: -65px;
-}
+
 
 .proceed .button {
     -webkit-border-radius: 30px;

@@ -6,6 +6,7 @@
 package com.n15.repository.Impl;
 
 import com.n15.pojos.Posts;
+import com.n15.pojos.User;
 import com.n15.repository.PostRepository;
 import java.util.List;
 import javax.persistence.Query;
@@ -64,6 +65,26 @@ public class PostRepositoryImpl implements PostRepository{
     public Posts getPost(int postId) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
         return session.get(Posts.class,postId);
+    }
+
+    @Override
+    public List<Posts> getPostsById(int i) {
+        
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<Posts> query = builder.createQuery(Posts.class);
+        Root root = query.from(Posts.class);
+        query = query.select(root);
+        Predicate p = builder.equal(root.get("id").as(Integer.class), i);
+        query = query.where(p);
+        Query q = session.createQuery(query);
+        return q.getResultList();
+        
+       
+        
+            
+        
+   
     }
     
 }

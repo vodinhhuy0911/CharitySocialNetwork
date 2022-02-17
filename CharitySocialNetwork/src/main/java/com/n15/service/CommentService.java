@@ -6,6 +6,7 @@
 package com.n15.service;
 
 import com.n15.pojos.Comment;
+import com.n15.pojos.User;
 import java.util.List;
 
 /**
@@ -14,4 +15,5 @@ import java.util.List;
  */
 public interface CommentService {
     List<Comment> getComment(int postId);
+    Comment addComment(String cmt, int postId, int userId);
 }

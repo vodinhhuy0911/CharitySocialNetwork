@@ -5,6 +5,7 @@
  */
 package com.n15.pojos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
@@ -46,19 +47,27 @@ import org.springframework.web.multipart.MultipartFile;
 public class Posts implements Serializable {
 
     @Fetch(value = FetchMode.SUBSELECT)
+    @OneToMany(fetch = FetchType.EAGER,mappedBy = "postId")
+    private Collection<Auction> auctionCollection;
+
+    @JsonIgnore
+    @Fetch(value = FetchMode.SUBSELECT)
     @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL, mappedBy = "post")
     private Collection<ImagesProduct> imagesProductCollection;
 
+    @JsonIgnore
     @JoinColumn(name = "category_id", referencedColumnName = "idcategories")
     @ManyToOne
     private Categories category;
 
+    @JsonIgnore
     @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL, mappedBy = "postId")
     private Collection<Comment> commentCollection;
 
+    @JsonIgnore
     @JoinColumn(name = "userid", referencedColumnName = "id")
-    @ManyToOne
-    private User user;
+    @ManyToOne()
+    private User userid;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -87,6 +96,7 @@ public class Posts implements Serializable {
     @Size(min = 1, max = 65535)
     @Column(name = "images")
     private String images;
+    @JsonIgnore
     @Transient
     private MultipartFile file;
 
@@ -184,12 +194,12 @@ public class Posts implements Serializable {
         this.file = file;
     }
 
-    public User getUser() {
-        return user;
+    public User getUserid() {
+        return userid;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserid(User userid) {
+        this.userid = userid;
     }
 
     @XmlTransient
@@ -216,6 +226,15 @@ public class Posts implements Serializable {
 
     public void setImagesProductCollection(Collection<ImagesProduct> imagesProductCollection) {
         this.imagesProductCollection = imagesProductCollection;
+    }
+
+    @XmlTransient
+    public Collection<Auction> getAuctionCollection() {
+        return auctionCollection;
+    }
+
+    public void setAuctionCollection(Collection<Auction> auctionCollection) {
+        this.auctionCollection = auctionCollection;
     }
     
 }

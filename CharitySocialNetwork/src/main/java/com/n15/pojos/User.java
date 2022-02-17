@@ -24,6 +24,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -47,6 +49,10 @@ import org.springframework.web.multipart.MultipartFile;
     @NamedQuery(name = "User.findByActive", query = "SELECT u FROM User u WHERE u.active = :active"),
     @NamedQuery(name = "User.findByUserRole", query = "SELECT u FROM User u WHERE u.userRole = :userRole")})
 public class User implements Serializable {
+
+    @Fetch(value = FetchMode.SUBSELECT)
+    @OneToMany(fetch = FetchType.EAGER,mappedBy = "userId")
+    private Collection<Auction> auctionCollection;
 
     /**
      * @return the confirmPassword
@@ -130,7 +136,8 @@ public class User implements Serializable {
     private String userRole;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private Collection<Comment> commentCollection;
-    @OneToMany(fetch = FetchType.EAGER,mappedBy = "user")
+    @Fetch(value = FetchMode.SUBSELECT)
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL,mappedBy = "userid")
     private Collection<Posts> postsCollection;
 
     
@@ -255,15 +262,15 @@ public class User implements Serializable {
     public void setCommentCollection(Collection<Comment> commentCollection) {
         this.commentCollection = commentCollection;
     }
-//
-//    @XmlTransient
-//    public Collection<Posts> getPostsCollection() {
-//        return postsCollection;
-//    }
-//
-//    public void setPostsCollection(Collection<Posts> postsCollection) {
-//        this.postsCollection = postsCollection;
-//    }
+
+    @XmlTransient
+    public Collection<Posts> getPostsCollection() {
+        return postsCollection;
+    }
+
+    public void setPostsCollection(Collection<Posts> postsCollection) {
+        this.postsCollection = postsCollection;
+    }
 
     @Override
     public int hashCode() {
@@ -288,6 +295,15 @@ public class User implements Serializable {
     @Override
     public String toString() {
         return "com.n15.pojos.User[ id=" + id + " ]";
+    }
+
+    @XmlTransient
+    public Collection<Auction> getAuctionCollection() {
+        return auctionCollection;
+    }
+
+    public void setAuctionCollection(Collection<Auction> auctionCollection) {
+        this.auctionCollection = auctionCollection;
     }
     
 }

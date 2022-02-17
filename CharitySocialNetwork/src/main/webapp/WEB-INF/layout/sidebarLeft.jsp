@@ -17,7 +17,6 @@
                         <li><a href="timeline-friends.html" title="Friends" data-toggle="tooltip" data-placement="right"><i class="icon-group-work"></i></a></li>
                         <li><a href="<c:url value="/notification"/>" title="Notification" data-toggle="tooltip" data-placement="right"><i class="icon-smartphone-notification"></i></a></li>
                         <li><a href="notifications.html" title="Images" data-toggle="tooltip" data-placement="right"><i class="icon-picture"></i></a></li>
-                        <li><a href="notifications.html" title="Video" data-toggle="tooltip" data-placement="right"><i class="icon-bubble-video"></i></a></li>
                         <li><a href="<c:url value="/auction"/>" title="Auction" data-toggle="tooltip" data-placement="right"><i class="fas fa-balance-scale"></i></a></li>
                         <li><a href="<c:url value="/logout"/>" title="Logout" data-toggle="tooltip" data-placement="right"><i class="icon-exit"></i></a></li>
                     </ul>

@@ -34,10 +34,8 @@
 
                                         </figure>
                                         <div class="product-name">
-                                            <c:url value="shopDetail" var="productPath">
-                                                <c:param name="productId" value="${item.id}"></c:param>
-                                            </c:url>
-                                            <h5><a href="<c:url value="${productPath}"/>" title="">${item.titles}</a></h5>
+                                            
+                                            <h5><a href="<c:url value="shopDetail/${item.id}"/>" title="">${item.titles}</a></h5>
                                             <div class="prices">
                                                 <ins>$ ${item.price}</ins>
                                             </div>

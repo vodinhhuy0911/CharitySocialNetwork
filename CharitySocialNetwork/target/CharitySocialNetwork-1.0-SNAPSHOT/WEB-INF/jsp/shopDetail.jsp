@@ -5,7 +5,9 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <section class="white-bg">
     <div class="gap100">
         <div class="container">
@@ -18,7 +20,7 @@
                                     <ul class="slider-for-gold">
                                         <li><img src="${product.images}" alt=""></li>
                                             <c:forEach var="image" items="${product.imagesProductCollection}">
-                                                <li><img src="${image.image}" alt=""></li>
+                                            <li><img src="${image.image}" alt=""></li>
                                             </c:forEach>
 
                                     </ul>
@@ -47,9 +49,15 @@
                                     <p>
                                         ${product.content}
                                     </p>
-                                    <a class="shopnow" title="" href="#">Add To Cart</a>
-
-
+                                    <c:if test="${item.auctionCollection == null && currentUser.auctionCollection == null}">
+                                        <form:form method="post" modelAttribute="auction">
+                                            <form:input path="priceAuction" ></form:input>
+                                                <input type="submit" value ="Auction"/>
+                                        </form:form>
+                                    </c:if>
+                                    <c:if test="${item.auctionCollection == null && currentUser.auctionCollection == null}">
+                                        <h4 style="color: #000">auctioned products</h4>
+                                    </c:if>
                                     <div class="prod categories">
                                         <span class="cat-heading">Categories:
                                             <a href="#" title="">${product.category.name}</a>

@@ -5,14 +5,12 @@
  */
 package com.n15.pojos;
 
-import com.n15.pojos.Posts;
-import com.n15.pojos.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,7 +23,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -48,21 +45,23 @@ public class Comment implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
-    @NotNull
     @Lob
-    @Size(min = 1, max = 65535)
+    @Size(max = 65535)
     @Column(name = "content_comment")
     private String contentComment;
+    @JsonIgnore
     @Column(name = "published")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date published;
+
     @JoinColumn(name = "post_id", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+    @ManyToOne
     private Posts postId;
+
     @JoinColumns({
-        @JoinColumn(name = "user_id", referencedColumnName = "id")})
-    @ManyToOne(fetch = FetchType.EAGER,optional = false)
+        @JoinColumn(name = "user_id", referencedColumnName = "id")
+        })
+    @ManyToOne
     private User user;
 
     public Comment() {
@@ -70,11 +69,6 @@ public class Comment implements Serializable {
 
     public Comment(Integer id) {
         this.id = id;
-    }
-
-    public Comment(Integer id, String contentComment) {
-        this.id = id;
-        this.contentComment = contentComment;
     }
 
     public Integer getId() {
@@ -139,7 +133,7 @@ public class Comment implements Serializable {
 
     @Override
     public String toString() {
-        return "com.n15.controllers.Comment[ id=" + id + " ]";
+        return "com.n15.pojos.Comment[ id=" + id + " ]";
     }
     
 }

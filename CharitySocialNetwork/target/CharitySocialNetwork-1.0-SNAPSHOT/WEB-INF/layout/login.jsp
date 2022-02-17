@@ -14,12 +14,12 @@
         <meta name="description" content="" />
         <meta name="keywords" content="" />
         <title><tiles:insertAttribute name ="title"></tiles:insertAttribute></title>
-        <link rel="icon" href="<c:url value="images/fav.png"/>" type="image/png" sizes="16x16"> 
-        <link rel="stylesheet" href="<c:url value="css/cssButton.css"/>">
-        <link rel="stylesheet" href="<c:url value="css/main.min.css"/>">
-        <link rel="stylesheet" href="<c:url value="css/style.css"/>">
-        <link rel="stylesheet" href="<c:url value="css/color.css"/>">
-        <link rel="stylesheet" href="<c:url value="css/responsive.css"/>">
+        <link rel="icon" href="<c:url value="/images/fav.png"/>" type="image/png" sizes="16x16"> 
+        <link rel="stylesheet" href="<c:url value="/css/cssButton.css"/>">
+        <link rel="stylesheet" href="<c:url value="/css/main.min.css"/>">
+        <link rel="stylesheet" href="<c:url value="/css/style.css"/>">
+        <link rel="stylesheet" href="<c:url value="/css/color.css"/>">
+        <link rel="stylesheet" href="<c:url value="/css/responsive.css"/>">
     </head>
     <body>
         <!--<div class="se-pre-con"></div>-->
@@ -33,7 +33,7 @@
         </div>
         <script data-cfasync="false" src="<c:url value="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"/>"></script><script src="<c:url value="js/main.min.js"/>"></script>
 
-        <script src="<c:url value="js/script.js"/>"></script>
+        <script src="<c:url value="/js/script.js"/>"></script>
 
     </body>	
 

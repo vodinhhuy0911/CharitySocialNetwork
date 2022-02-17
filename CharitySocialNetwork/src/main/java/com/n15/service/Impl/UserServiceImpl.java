@@ -80,4 +80,9 @@ public class UserServiceImpl implements UserService{
         return false;   
         
     }
+
+    @Override
+    public User getUserById(int i) {
+        return this.userRepository.getUserById(i);
+    }
 }

@@ -16,4 +16,5 @@ public interface PostRepository {
     List<Posts> getPosts(String kw);
     boolean addPost(Posts post);
     Posts getPost(int postId);
+    List<Posts> getPostsById(int id);
 }

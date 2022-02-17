@@ -7,6 +7,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="topbar stick">
+    <c:url value="timeline" var="idUser">
+                    <c:param name="userId" value="${currentUser.id}"></c:param>
+                </c:url>
     <div class="logo">
         <a title="" href="<c:url value="/"/>"><img src="images/logo.png" alt=""></a>
     </div>
@@ -171,8 +174,8 @@
                 <a href="#" title=""><span class="status f-online"></span>online</a>
                 <a href="#" title=""><span class="status f-away"></span>away</a>
                 <a href="#" title=""><span class="status f-off"></span>offline</a>
-                <a href="<c:url value="/timeline"/>" title=""><i class="far fa-user"></i></i> view profile</a>
-                <a href="#" title=""><i class="fas fa-users-cog"></i>account setting</a>
+                <a href="<c:url value="${idUser}"/>" title=""><i class="far fa-user"></i></i> view profile</a>
+                <a href="<c:url value ="/editProfileBasic"/>" title=""><i class="fas fa-users-cog"></i>account setting</a>
                 <a href="<c:url value="/logout"/>" title=""><i class="fas fa-sign-out-alt"></i></i>log out</a>
             </div>
         </div>
@@ -195,16 +198,10 @@
                         </ul>
                     </li>
                     <li class="menu-item-has-children">
-                        <a href="#" title="">Our Blog</a>
+                        <a href="#" title="">My Auction</a>
                         <ul>
-                            <li><a href="blog-grid-wo-sidebar.html" title="">Our Blog</a></li>
-                            <li><a href="blog-grid-right-sidebar.html" title="">Blog with R-Sidebar</a></li>
-                            <li><a href="blog-grid-left-sidebar.html" title="">Blog with L-Sidebar</a></li>
-                            <li><a href="blog-masonry.html" title="">Blog Masonry Style</a></li>
-                            <li><a href="blog-list-wo-sidebar.html" title="">Blog List Style</a></li>
-                            <li><a href="blog-list-right-sidebar.html" title="">Blog List with R-Sidebar</a></li>
-                            <li><a href="blog-list-left-sidebar.html" title="">Blog List with L-Sidebar</a></li>
-                            <li><a href="blog-detail.html" title="">Blog Post Detail</a></li>
+                            <li><a href="<c:url value="/shopCart"/>" title="">My Auction</a></li>
+                            
                         </ul>
                     </li>
                     <li class="menu-item-has-children">

@@ -5,6 +5,8 @@
  */
 package com.n15.controllers;
 
+import com.n15.pojos.Comment;
+import com.n15.pojos.Posts;
 import com.n15.pojos.User;
 import com.n15.service.PostService;
 import com.n15.service.UserService;
@@ -77,10 +79,27 @@ public class UserController {
             return"redirect:/login";
         else
         {
-            model.addAttribute("post",this.postService.getPosts(params.getOrDefault("kw", "")));
             
+            model.addAttribute("userPost",session.getAttribute("currentUser"));
+            model.addAttribute("product",new Posts());
+//            model.addAttribute("comment", new Comment());
             return "timeline";
         }
+    }
+    @PostMapping("/timeline")
+    public String addProduct1(HttpSession session, Model model, @ModelAttribute(value = "product") Posts post) {
+        //làm trong validate confirm pass
+        String error = null;
+        User user = (User) session.getAttribute("currentUser");
+            if (this.postService.addPost(post, user)) {
+                return "redirect:/";
+            } else {
+                error = "Đã có lỗi xảy ra";
+            }
+        
+        model.addAttribute("errorMsg", error);
+        return "timeline";
+
     }
 //################################################
     @RequestMapping("/message")
@@ -112,10 +131,7 @@ public class UserController {
 
     
 
-    @RequestMapping("/shopCart")
-    public String shopCart() {
-        return "shopCart";
-    }
+   
 
     @RequestMapping("/shopCheckout")
     public String shopCheckout() {

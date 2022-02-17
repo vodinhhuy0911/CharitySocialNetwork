@@ -17,4 +17,5 @@ public interface PostService {
     List<Posts> getPosts(String kw);
     boolean addPost(Posts post, User user);
     Posts getPost(int postId);
+    List<Posts> getPostsById(int id);
 }

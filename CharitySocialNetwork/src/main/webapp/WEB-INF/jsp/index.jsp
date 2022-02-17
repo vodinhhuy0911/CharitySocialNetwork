@@ -12,6 +12,7 @@
     <div class="central-meta">
         <div class="new-postbox">
             <figure>
+                
                 <img class="avatar-timeline" src="${currentUser.images}" alt="">
             </figure>
             <div class="newpst-input">
@@ -22,33 +23,53 @@
         </div>
     </div><!-- add post new box -->
     <div class="loadMore">
-        <c:forEach var="item" items="${post}">
+        <c:forEach var="item" items="${userPost.postsCollection}">
+            <c:url value="timeline" var="idUser">
+                    <c:param name="userId" value="${item.userid.id}"></c:param>
+             </c:url>
+            <c:url value="shopDetail" var="postPath">
+                <c:param name="productId" value="${item.id}"></c:param>
+            </c:url>
             <div class="central-meta item">
+                <div class="top-area">
+                    <c:if test="${currentUser.id == item.userid.id}">
+                        <ul class="setting-area">
+                            <li><a href="" title="Home" data-ripple=""><i class="fa-regular fa-circle-trash"></i>fix</a></li>
+                            <li><a href="" title="Home" data-ripple=""><i class="fa-regular fa-circle-trash"></i>delete</a></li>
+                        </ul>
 
+                    </c:if>
+                    <c:if test="${currentUser.id != item.userid.id}">
+                        <ul class="setting-area">
+                            <li><a href="" title="Home" data-ripple=""><i class="fa-regular fa-circle-trash"></i>Report</a></li>
+                        </ul>
+
+                    </c:if>
+                </div>
                 <div class="user-post">
                     <div class="friend-info">
                         <figure>
-                            <img class ="avatar-poster"src="${item.user.images}" alt="">
+                            <img class ="avatar-poster"src="${item.userid.images}" alt="">
                         </figure>
                         <div class="friend-name">
-                            <ins><a href="time-line.html" title="">${item.user.firstName} ${item.user.lastName}</a></ins>
+                            <ins><a href="${idUser}" title="">${item.userid.firstName} ${item.userid.lastName}</a></ins>
                             <span>Published: test</span>
 
                         </div>
                         <div class="post-meta">
-                            <a href="#"><img src="${item.images}" alt=""></a>
-                            <div class="more-pix">
-                                <h2 class="main-title text-center">Shoes for Men Black</h2>
-                                <div class="row">
-                                    <div class="offset-md-1 col-lg-10">
-                                        <p class="prod-info text-center">
-                                            Time start: 
-                                        </p>
-                                        <p class="prod-info text-center">
-                                            Time end: 
-                                        </p>
-                                        <p class="prod-info text-center">
-                                            Price: ${item.price}
+                            <a href="<c:url value="${postPath}"></c:url>"><img src="${item.images}" alt=""></a>
+                                <div class="more-pix">
+                                    <h2 class="main-title text-center">Shoes for Men Black</h2>
+                                    <div class="row">
+                                        <div class="offset-md-1 col-lg-10">
+                                            <p class="prod-info text-center">
+                                                Time start: 
+                                            </p>
+                                            <p class="prod-info text-center">
+                                                Time end: 
+                                            </p>
+                                            <p class="prod-info text-center">
+                                                Price: ${item.price}
                                         </p>
                                     </div>
                                 </div>	
@@ -112,9 +133,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="coment-area">
+                    <div class="coment-area" >
                         <ul class="we-comet">
                             <%--<c:if test="${item.commentCollection.count() != 0} ">--%>
+                            <div id="comentarea">
                             <c:forEach var="comment" items="${item.commentCollection}">
                                 <li>
                                     <div class="comet-avatar">
@@ -131,6 +153,7 @@
 
                                 </li>
                             </c:forEach>
+                                </div>
                             <%--</c:if>--%>
                             <li>
                                 <a href="#" title="" class="showmore underline">more comments</a>
@@ -141,25 +164,9 @@
                                 </div>
                                 <div class="post-comt-box">
                                     <form method="post">
-                                        <textarea placeholder="Post your comment"></textarea>
-                                        <div class="add-smiles">
-                                            <span class="em em-expressionless" title="add icon"></span>
-                                        </div>
-                                        <div class="smiles-bunch">
-                                            <i class="em em---1"></i>
-                                            <i class="em em-smiley"></i>
-                                            <i class="em em-anguished"></i>
-                                            <i class="em em-laughing"></i>
-                                            <i class="em em-angry"></i>
-                                            <i class="em em-astonished"></i>
-                                            <i class="em em-blush"></i>
-                                            <i class="em em-disappointed"></i>
-                                            <i class="em em-worried"></i>
-                                            <i class="em em-kissing_heart"></i>
-                                            <i class="em em-rage"></i>
-                                            <i class="em em-stuck_out_tongue"></i>
-                                        </div>
-                                        <button type="submit"></button>
+                                        <textarea id ="contentComment" placeholder="Post your comment"></textarea>
+                                        
+                                        
                                     </form>	
                                 </div>
                             </li>
@@ -192,13 +199,13 @@
             <form:input path="file" id="file" type="file" required="required"/>
             <label class="control-label" for="file">Images</label><i class="mtrl-select"></i>
         </div>
-            <div class="form-group">
-                <form:select type="text" id="cate" path ="category" >
-                    <c:forEach var="item" items="${cate}">
-                        <option value="${item.idcategories}">${item.name}</option>
-                    </c:forEach>
-                </form:select>
-            </div>
+        <div class="form-group">
+            <form:select type="text" id="cate" path ="category" >
+                <c:forEach var="item" items="${cate}">
+                    <option value="${item.idcategories}">${item.name}</option>
+                </c:forEach>
+            </form:select>
+        </div>
         <input type="submit" value="Post"/>
         <span class="close">Close</span>
     </form:form>

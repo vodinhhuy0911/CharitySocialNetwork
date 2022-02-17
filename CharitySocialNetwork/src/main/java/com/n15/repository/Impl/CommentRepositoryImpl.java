@@ -43,4 +43,18 @@ public class CommentRepositoryImpl implements CommentRepository {
         return q.getResultList();
     }
 
+    @Override
+    public Comment addComment(Comment cmt) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        try{
+            session.save(cmt);
+            return cmt;
+        }
+        catch(Exception ex)
+        {
+            System.out.print(ex.getMessage());
+        }
+        return null;
+    }
+
 }
